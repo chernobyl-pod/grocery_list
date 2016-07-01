@@ -16,7 +16,7 @@ router.post('/', function(req, res) {
     password: req.body.password
   };
   console.log(req.session);
-  knex('members').insert(req.session);
+  knex('members').insert({name: req.body.username}, {email: req.body.email}, {password: req.body.password}); //Is not formatted in an array
   res.redirect('/');
 });
 
