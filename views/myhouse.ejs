@@ -17,21 +17,28 @@
 			</header>
 			<main class="container-fluid">
 				<div class="recipe-row col-xs-8">
-					<fieldset class="col-lg-12">
+					<fieldset class="col-xs-12">
 							<% items.forEach(function(item){ %>
-									<ul class="col-lg-3">
+									<ul class="col-xs-12">
 											<li>
-													<h1><%= item.title %></h1>
+													<h3><%= item.title %></h3>
 											</li>
 									</ul>
 							<% }); %>
 					</fieldset>
-
-
-
 				</div>
 				<div class="recipe-button-row col-xs-4">
-
+					<fieldset class="clear-buttons">
+							<% items.forEach(function(item){ %>
+								<ul class="col-xs-12">
+									<li>
+											<form class="delete" action="/delete" method="post">
+												<input type="submit" name="delete" value="Delete">
+											</form>
+									</li>
+								</ul>
+							<% }); %>
+					</fieldset>
 				</div>
 			</main>
 
