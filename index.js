@@ -12,6 +12,7 @@ require('dotenv').config();
 var login = require('./routes/login');
 var register = require('./routes/register');
 var home = require('./routes/index');
+var logout = require('./routes/logout');
 
 var app=express();
 var router = express.Router();
@@ -30,6 +31,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/', home);
 app.use('/login', login);
 app.use('/register', register);
+app.use('/logout', logout);
 
 var port = 3000;
 app.listen(port, function() {
