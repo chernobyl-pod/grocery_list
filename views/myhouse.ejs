@@ -10,17 +10,37 @@
 			<header class="links-top">
 				<form class="logout" action="/logout" method="get">
 					<input type="submit" name="logout" value="Log Out">
-				</form>
-				<form class="change" action="/index.ejs" method="get">
-					<input type="button" name="change" value="change household">
+			</form>
+				<form class="change" action="/index" method="get">
+					<input type="submit" name="change" value="Change Household">
 				</form>
 			</header>
 			<main class="container-fluid">
-				<div class="row">
-
-
-
-
+				<div class="recipe-row col-xs-8">
+					<fieldset class="col-xs-12">
+						<%# this ejs function generates the list for the user needs to be tied into backend%>
+							<% items.forEach(function(item){ %>
+									<ul class="col-xs-12">
+											<li>
+													<h3><%= item.title %></h3>
+											</li>
+									</ul>
+							<% }); %>
+					</fieldset>
+				</div>
+				<div class="recipe-button-row col-xs-4">
+					<fieldset class="clear-buttons">
+						<%# this ejs function populates a delete button for each item, needs to be tied into backend%>
+							<% items.forEach(function(item){ %>
+								<ul class="col-xs-12">
+									<li>
+											<form class="delete" action="/delete" method="post">
+												<input type="submit" name="delete" value="Delete">
+											</form>
+									</li>
+								</ul>
+							<% }); %>
+					</fieldset>
 				</div>
 			</main>
 
