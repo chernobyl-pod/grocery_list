@@ -4,7 +4,8 @@
 }
 
 div {
-	background-image: url('public/bg-1920-1080-8.jpg');
+	background-image: url('bg-1920-1080-8.jpg');
+  height: 500px;
 }
 
 .header {

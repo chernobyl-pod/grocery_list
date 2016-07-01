@@ -31,6 +31,8 @@ app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(express.static(__dirname + '/public'));
+
 app.use('/', home);
 app.use('/login', login);
 app.use('/register', register);
