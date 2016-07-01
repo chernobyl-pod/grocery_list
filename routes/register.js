@@ -9,11 +9,13 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
+  console.log(req.session);
   req.session = {
-    email: req.params.email,
-    name: req.params.name,
-    password: req.params.password
+    email: req.body.email,
+    name: req.body.username,
+    password: req.body.password
   };
+  console.log(req.session);
   knex('members').insert(req.session);
   res.redirect('/');
 });
