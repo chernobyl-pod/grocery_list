@@ -15,6 +15,11 @@ var home = require('./routes/index');
 var app=express();
 var router = express.Router();
 
+app.use(cookieSession({
+  name: 'session',
+  keys: [process.env.KEY_ONE]
+}));
+
 app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
