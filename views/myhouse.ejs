@@ -9,17 +9,28 @@
 		<body>
 			<header class="links-top">
 				<form class="logout" action="/logout" method="get">
-					<input type="button" name="logout" value="logout">
+					<input type="submit" name="logout" value="logout">
 				</form>
-				<form class="change" action="/index.ejs" method="get">
-					<input type="button" name="change" value="change household">
+				<form class="change" action="/index" method="get">
+					<input type="submit" name="change" value="change household">
 				</form>
 			</header>
 			<main class="container-fluid">
-				<div class="row">
+				<div class="recipe-row col-xs-8">
+					<fieldset class="col-lg-12">
+							<% items.forEach(function(item){ %>
+									<ul class="col-lg-3">
+											<li>
+													<h1><%= item.title %></h1>
+											</li>
+									</ul>
+							<% }); %>
+					</fieldset>
 
 
 
+				</div>
+				<div class="recipe-button-row col-xs-4">
 
 				</div>
 			</main>
