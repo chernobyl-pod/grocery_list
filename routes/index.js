@@ -5,8 +5,8 @@ var knex = require('../db/knex');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  if (req.session.username) {
-    res.render('home');
+  if (req.session.name) {
+    res.render('myhouse');
     console.log(req.session);
   } else {
     console.log(req.session);
