@@ -8,4 +8,14 @@ router.get('/', function(req, res) {
   res.render('register');
 });
 
+router.post('/', function(req, res) {
+  req.session = {
+    email: req.params.email,
+    name: req.params.name,
+    password: req.params.password
+  };
+  knex('members').insert(req.session);
+  res.redirect('/');
+});
+
 module.exports = router;
