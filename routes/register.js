@@ -1,7 +1,8 @@
 'use strict';
 
 var express = require('express');
-var knex = require('../db/knex');
+var knex = require('../db/knex.js');
+
 var router = express.Router();
 
 router.get('/', function(req, res) {
@@ -17,9 +18,14 @@ router.post('/', function(req, res, next) {
   };
   console.log(req.session);
   // knex('books').insert({title: 'Slaughterhouse Five'})
-  knex('members').insert({name: req.body.username, email: req.body.email, password: req.body.password});
+  knex('members').insert({name: req.body.username, email: req.body.email, password: req.body.password})
+  .then(function(data){
+    res.redirect('login');
+  }).catch(next);
   // res.redirect('/home');
-  res.render('')
+  console.log("past knex insert");
+  //res.render('myhouse');
+
 });
 
 module.exports = router;
