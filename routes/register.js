@@ -19,7 +19,7 @@ router.post('/', function(req, res, next) {
   // knex('books').insert({title: 'Slaughterhouse Five'})
   knex('members').insert({name: req.body.username, email: req.body.email, password: req.body.password});
   // res.redirect('/home');
-  next();
+  res.render('')
 });
 
 module.exports = router;
