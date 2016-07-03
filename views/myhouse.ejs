@@ -10,7 +10,7 @@
 			<header class="links-top">
 				<form class="logout" action="/logout" method="get">
 					<input type="submit" name="logout" value="Log Out">
-			</form>
+				</form>
 				<form class="change" action="/index" method="get">
 					<input type="submit" name="change" value="Change Household">
 				</form>
@@ -18,11 +18,10 @@
 			<main class="container-fluid">
 				<div class="recipe-row col-xs-8">
 					<fieldset class="col-xs-12">
-						<%# this ejs function generates the list for the user needs to be tied into backend%>
-							<% items.forEach(function(item){ %>
+							<% groceries.forEach(function(gro){ %>
 									<ul class="col-xs-12">
 											<li>
-													<h3><%= item.title %></h3>
+													<h3><%= gro.title %></h3>
 											</li>
 									</ul>
 							<% }); %>
@@ -30,8 +29,7 @@
 				</div>
 				<div class="recipe-button-row col-xs-4">
 					<fieldset class="clear-buttons">
-						<%# this ejs function populates a delete button for each item, needs to be tied into backend%>
-							<% items.forEach(function(item){ %>
+							<% groceries.forEach(function(gro){ %>
 								<ul class="col-xs-12">
 									<li>
 											<form class="delete" action="/delete" method="post">
@@ -43,6 +41,14 @@
 					</fieldset>
 				</div>
 			</main>
+			<footer class="my-household-footer">
+				<form class="add" action="/add" method="post">
+					<input type="submit" name="add-item" value="Add">
+				</form>
+				<form class="delete-all" action="/delete" method="post">
+					<input type="submit" name="delete-all" value="Delete All">
+				</form>
+			</footer>
 
 		</body>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
