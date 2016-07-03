@@ -6,11 +6,49 @@
 	<link rel="stylesheet" href="style.css">
 	<title>Join Household</title>
 </head>
-<body>
-	<header>
-		
+		<body>
+			<header class="household-list">
+				<h1>Join a Household</h1>
+			</header>
+			<main class="container-fluid">
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="zip-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							Zip Code
+	 					<span class="caret"></span>
+ 					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<% groceries.forEach(function(gro){ %>
+								<ul class="col-xs-12">
+										<li>
+												<h3><%= gro.zip %></h3>
+										</li>
+								</ul>
+						<% }); %>
+					</ul>
+				</div>
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" data-toggle="households-dropdown" aria-haspopup="true" aria-expanded="true">
+							Household
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<% groceries.forEach(function(gro){ %>
+								<ul class="col-xs-12">
+										<li>
+												<h3><%= gro.household %></h3>
+										</li>
+								</ul>
+						<% }); %>
+					</ul>
+				</div>
+				<form class="form" action="/login-household" method="post">
+	        <label for="password">Password</label>
+	        <input type="text" name="password" value="">
+	        <input type="submit" name="name" value="Submit">
+	      </form>
 
-	</header>
-</body>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+			</main>
+
+		</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </html>
