@@ -33,7 +33,8 @@ app.use('/login', login);
 app.use('/register', register);
 app.use('/logout', logout);
 
-var port = 3000;
+var port = process.env.PORT || 3000;
+
 app.listen(port, function() {
-  console.log("Listening on 3000");
+  console.log("Listening on: " + port + ".");
 });
