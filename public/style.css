@@ -3,10 +3,15 @@
   padding: 25% 25%;
 }
 
-div {
-	background-image: url('bg-1920-1080-8.jpg');
-  height: 720px;
+
+main {
+   background-image: url('bg-1920-1080-8.jpg') no-repeat;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
+
 
 .header {
 	position: fixed;
