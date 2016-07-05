@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>My Household</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-	<link rel="stylesheet" href="style.css">
-</head>
-		<body>
-			<header class="links-top">
-				<form class="logout" action="/logout" method="get">
-					<input type="submit" name="logout" value="Log Out">
-				</form>
-				<form class="change" action="/households" method="get">
-					<input type="submit" name="change" value="Change Household">
-				</form>
-				<form class="addhousehold" action="/addhousehold" method="get">
-					<input type="submit" name="addhousehold" value="Add Household">
-				</form>
-				<form class="newhousehold" action="/newhousehold" method="get">
-					<input type="submit" name="newhousehold" value="Create New Household">
-				</form>
-			</header>
-      <h1>Add New Recipe</h1>
+	<head>
+		<title>Add Custom Recipe</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header class="masthead-clearfix">
+			<form class="logout" action="/logout" method="get">
+				<input type="submit" name="logout" value="Log Out">
+			</form>
+			<form class="change" action="/index" method="get">
+				<input type="submit" name="change" value="Change Household">
+			</form>
+		</header>
 		<main>
 			<fieldset>
 				<form class="recipe-query" action="/recipe-query" method="get">
@@ -29,18 +22,14 @@
 					<input type="number" name="numrecipes" value="Number of Results">
 					<input type="text" name="allergies" value="Allergies">
 					<input type="dropdown" name="dietarypref" value="Preferred Diet">
-					<input type="text" name="category" value="Style">
+					<input type="text" name="genre" value="Style">
 					<input type="dropdown" name="coursetype" value="Course">
 					<input type="button" name="submit" value="Submit">
 				</form>
 			</fieldset>
 		</main>
-		<footer class="add-recipe-footer">
-			<form class="add" action="/recipes/new" method="post">
-        <label for="newrecipe">New Recipe</label>
-        <input type="text" name="newrecipe">
-        <label for="category">Category</label>
-        <input type="text" name="category">
+		<footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<form class="add" action="/add" method="post">
 				<input type="submit" name="add-recipe-to-db" value="Add Recipe">
 			</form>
 		</footer>

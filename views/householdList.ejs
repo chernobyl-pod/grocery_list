@@ -7,22 +7,23 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
 </head>
-		<body>
-            <div class="site-wrapper">
+	<body>
+        <div class="site-wrapper">
 
 			<header class="masthead-clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-				<form class="logout" action="/logout" method="get">
+				<form class="logout col-3 btn btn-default" action="/logout" method="get">
 					<input type="submit" name="logout" value="Log Out">
 				</form>
-				<form class="change" action="/households" method="get">
-					<input type="submit" name="change" value="Change Household">
+				<form class="change col-3 btn btn-default" action="/households" method="get">
+					<input type="submit" name="change" value="Change Household" >
 				</form>
-				<form class="addhousehold" action="/addhousehold" method="get">
+				<form class="addhousehold col-3 btn btn-default" action="/addhousehold" method="get">
 					<input type="submit" name="addhousehold" value="Add Household">
 				</form>
-				<form class="newhousehold" action="/newhousehold" method="get">
+				<form class="newhousehold col-3 btn btn-default" action="/newhousehold" method="get">
 					<input type="submit" name="newhousehold" value="Create New Household">
 				</form>
+                <%# <a href="/newhousehold" class="btn btn-default">Link</a>%>
 			</header>
 			<main class="container-fluid">
 				<div class="recipe-row col-xs-8">
@@ -30,10 +31,10 @@
 							<% groceries.forEach(function(gro){ %>
 								<h3><%=gro.name%></h3>
 								<form class="" action="/households/<%=gro.name%>" method="post">
-									<input type="submit" name="selectHouse" value="Select Household">
+									<input class="btn btn-standard" type="submit" name="selectHouse" value="Select Household">
 								</form>
 								<form class="" action="/leave/<%=gro.name%>" method="post">
-									<input type="submit" name="leaveHouse" value="Leave Household">
+									<input class="btn btn-standard" type="submit" name="leaveHouse" value="Leave Household">
 								</form>
 							<% }); %>
 					</fieldset>
@@ -41,16 +42,16 @@
 				<div class="recipe-button-row col-xs-4">
 				</div>
 			</main>
-			<footer class="my-household-footer">
-				<form class="add" action="/add" method="post">
+			<footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<form class="add col-6 btn btn-default" action="/add" method="post">
 					<input type="submit" name="add-item" value="Add">
 				</form>
-				<form class="delete-all" action="/delete" method="post">
-					<input type="submit" name="delete-all" value="Delete All">
-				</form>
+				<%# <form class="delete-all col-6 btn btn-danger" action="/delete" method="post">
+					<input type="submit" name="delete-all" value="Delete">
+				</form>%>
 			</footer>
         </div>
-
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </body>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
 </html>

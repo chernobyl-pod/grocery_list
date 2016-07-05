@@ -1,27 +1,42 @@
-.links-top {
-  text-align: center;
-  padding: 25% 25%;
-}
-
-.site-wrapper{
-	overflow: hidden;
-   background-image: url('bg-1920-1080-8.jpg');
+body {
+    background: url('bg-1920-1080-8.jpg') no-repeat center center fixed;
     -moz-background-size: cover;
     -o-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
 }
 
+.links-top {
+  text-align: center;
+  padding: 25% 25%;
+}
 
-.header {
+.container-fluid{
+    min-height: 900px;
+    margin-top: 60px;
+	margin-bottom: 60px;
+
+}
+
+
+.landing-form {
+    margin: 25% 10%;
+}
+.masthead-clearfix {
 	position: fixed;
-	margin-top: 0;
-	width: 100%;
+	top: 0;
 	height: 60px;
 	line-height: 60px;
+	background-color: #212121;
+	color: #E0F2F1;
 	z-index: 10;
-	color: black;
-	background-color: grey;
-	opacity: 0.8;
-	text-align: center;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+	left: 0;
+  height: 60px;
+	line-height: 60px;
+    z-index: 10;
 }
