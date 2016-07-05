@@ -14,6 +14,7 @@ var register = require('./routes/register');
 var home = require('./routes/index');
 var logout = require('./routes/logout');
 var households = require('./routes/households');
+var addhousehold = require('./routes/addhousehold');
 
 var app=express();
 var router = express.Router();
@@ -34,6 +35,7 @@ app.use('/login', login);
 app.use('/register', register);
 app.use('/logout', logout);
 app.use('/households', households);
+app.use('/addhousehold', addhousehold);
 
 var port = process.env.PORT || 3000;
 
