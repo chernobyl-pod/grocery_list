@@ -19,12 +19,12 @@
 				<h1>Add List Item</h1>
 				<div class="item-type col-xs-12">
 					<fieldset class="col-xs-12">
-
-					</fieldset>
-				</div>
-				<div class="item-list col-xs-12">
-					<fieldset class="col-xs-12">
-
+						<form class="item-name" action="/add-item" method="post">
+							<input type="text" name="item-name" value="Item Name">
+						</form>
+						<form class="item-qty" action="/add-qty" method="post">
+							<input type="number" name="item-qty" value="Item Quantity">
+						</form>
 					</fieldset>
 				</div>
 			</main>
