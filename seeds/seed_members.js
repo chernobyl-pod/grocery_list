@@ -5,12 +5,12 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       return Promise.all([
         // Inserts seed entries
-        knex('members').insert({name: 'Roy Chase', email:'roychase@slam.com', password:'1234'}),
-        knex('members').insert({name: 'Mike Mes', email:'mikemes@slam.com', password:'1234'}),
-        knex('members').insert({name: 'Jim Stafford', email:'jstaff@slam.com', password:'1234'}),
-        knex('members').insert({name: 'user42', email:'user42@slam.com', password:'1234'}),
-        knex('members').insert({name: 'user76', email:'user76@slam.com', password:'1234'}),
-        knex('members').insert({name: 'user23', email:'user23@slam.com', password:'1234'})
+        knex('members').insert({id: 1, name: 'Roy Chase', email:'roychase@slam.com', password:'1234'}),
+        knex('members').insert({id: 2, name: 'Mike Mes', email:'mikemes@slam.com', password:'1234'}),
+        knex('members').insert({id: 3, name: 'Jim Stafford', email:'jstaff@slam.com', password:'1234'}),
+        knex('members').insert({id: 4, name: 'user42', email:'user42@slam.com', password:'1234'}),
+        knex('members').insert({id: 5, name: 'user76', email:'user76@slam.com', password:'1234'}),
+        knex('members').insert({id: 6, name: 'user23', email:'user23@slam.com', password:'1234'})
       ]);
     });
 };
