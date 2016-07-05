@@ -1,5 +1,5 @@
 // Update with your config settings.
-
+'use strict';
 module.exports = {
 
   development: {
@@ -8,7 +8,7 @@ module.exports = {
   },
 
   production: {
-    client: 'pg',
+    client: 'postgres',
     connection: process.env.DATABASE_URL
   }
 
