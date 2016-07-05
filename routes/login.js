@@ -20,19 +20,7 @@ router.post('/', function(req, res) {
             };
             res.render('myhouse', {groceries: [], household: req.session.household});
     }
-    // res.render('login');
   });
-  // knex.select().from('members').then(function(data) {
-  //   var match = false;
-  //   for (var i = 0; i < data.length; i++) {
-  //     if (data[i].email === req.body.email && data[i].password === req.body.password) {
-  //       match = true;
-  //     }
-  //   }
-  //   if (match = false) {
-  //     res.render('login');
-  //   }
-  // });
 });
 
 module.exports = router;

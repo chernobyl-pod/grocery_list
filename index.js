@@ -16,6 +16,7 @@ var logout = require('./routes/logout');
 var households = require('./routes/households');
 var addhousehold = require('./routes/addhousehold');
 var leave = require('./routes/leavehousehold');
+var newhousehold = require('./routes/newhousehold');
 
 var app=express();
 var router = express.Router();
@@ -38,6 +39,7 @@ app.use('/logout', logout);
 app.use('/households', households);
 app.use('/addhousehold', addhousehold);
 app.use('/leave', leave);
+app.use('/newhousehold', newhousehold);
 
 var port = process.env.PORT || 3000;
 
