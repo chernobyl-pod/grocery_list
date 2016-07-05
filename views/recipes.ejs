@@ -26,21 +26,15 @@
 					<fieldset class="col-xs-12">
 						<h1><%=household%></h1>
             <h3>Recipes</h3>
+            <% recipes.forEach(function(recipe) { %>
+              <h4><%=recipe.name%></h4>
+            <% }); %>
 					</fieldset>
           <form class="addnewrecipe" action="/recipes/new" method="get">
             <input type="submit" name="newrecipe" value="Add New Recipe">
           </form>
 				</div>
 			</main>
-			<footer class="my-household-footer">
-				<form class="add" action="/add" method="post">
-					<input type="submit" name="add-item" value="Add">
-				</form>
-				<form class="delete-all" action="/delete" method="post">
-					<input type="submit" name="delete-all" value="Delete All">
-				</form>
-			</footer>
-
 		</body>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </html>

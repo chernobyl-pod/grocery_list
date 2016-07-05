@@ -6,15 +6,12 @@ var knex = require('../db/knex');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  knex.select('id').from('households').where('name', req.session.household)
-  .then(function(house) {
-    knex('households-recipes').where('households_id', house[0].id)
-    .then(function(myrecipes) {
-      var recipes = {};
-      console.log(myrecipes);
-      res.render('recipes', {household: req.session.household});
-    });
+  knex.from('households').where('households.name', req.session.household).innerJoin('households-recipes', 'households.id', 'households-recipes.households_id').innerJoin('recipes', 'recipes.id', 'households-recipes.recipes_id').select('recipes.name')
+  .then(function(data) {
+    console.log(data);
+    res.render('recipes', {household: req.session.household, recipes: data});
   });
+
 });
 
 router.get('/new', function(req, res) {
