@@ -5,11 +5,11 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       return Promise.all([
         // Inserts seed entries
-        knex('food').insert({name: 'Chicken Breast'}),
-        knex('food').insert({name: 'spaghetti'}),
-        knex('food').insert({name: 'penne'}),
-        knex('food').insert({name: 'pesto suace'}),
-        knex('food').insert({name: 'NY Strip Steak'})
+        knex('food').insert({id: 1, name: 'Chicken Breast'}),
+        knex('food').insert({id: 2, name: 'spaghetti'}),
+        knex('food').insert({id: 3, name: 'penne'}),
+        knex('food').insert({id: 4, name: 'pesto suace'}),
+        knex('food').insert({id: 5, name: 'NY Strip Steak'})
       ]);
     });
 };
