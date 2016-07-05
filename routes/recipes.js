@@ -51,7 +51,7 @@ router.post('/new', function(req, res) {
             });
           });
         });
-      };
+      }
     });
   });
 });

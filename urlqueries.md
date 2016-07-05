@@ -22,3 +22,26 @@ number: number of results, int
 sample:
 
 <!-- https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?number=10&offset=0&query=pasta -->
+
+
+
+
+<!-- TODO this is the set header template for the api QUERY -->
+var request = require('request');
+
+var options = {
+  url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/autocomplete?metaInformation=false&number=25&query=por',
+  headers: {
+    'X-Mashape-Key': 'WZlhmsK0m4mshHdDeHvnP8841dmdp1P8HzBjsnlXv0k9tJoybe',
+    'Accept': 'application/json'
+  }
+};
+
+function callback(error, response, body) {
+  if (!error && response.statusCode == 200) {
+    var info = JSON.parse(body);
+    console.log(info);
+  }
+}
+
+request(options, callback);
