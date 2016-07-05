@@ -15,7 +15,16 @@
                 <input type="submit" name="change" value="Change Household">
             </form>
         </header>
-        <main class="container-fluid">
+        <div class="api">
+            <fieldset>
+                <form class="api-search" action="/search-api-item" method="get">
+                    <input type="text" name="search" value="Search">
+                    <input type="number" name="num_results" value="Number of Results">
+                    <input type="button" name="submit" value="Submit">
+                </form>
+            </fieldset>
+        </div>
+        <div class="container-fluid">
             <h1>Add Custom Item</h1>
             <div class="item-type col-xs-12">
                 <fieldset class="col-xs-12">
@@ -27,7 +36,7 @@
                     </form>
                 </fieldset>
             </div>
-        </main>
+        </div>
         <footer class="add-item-footer">
             <form class="add" action="/add" method="post">
                 <input type="submit" name="add-item-to-list" value="Add">
