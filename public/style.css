@@ -1,25 +1,32 @@
-.links-top {
-  text-align: center;
-  padding: 25% 25%;
-}
-
-.site-wrapper{
-	overflow: hidden;
-   background-image: url('bg-1920-1080-8.jpg');
+body {
+    background: url('bg-1920-1080-8.jpg') no-repeat center center fixed;
     -moz-background-size: cover;
     -o-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
 }
 
+.links-top {
+  text-align: center;
+  padding: 25% 25%;
+}
+
+.container-fluid{
+    min-height: 900px;
+    margin-top: 60px;
+	margin-bottom: 60px;
+
+}
+
+
+.landing-form {
+    margin: 25% 10%;
+}
 .masthead-clearfix {
 	position: fixed;
 	top: 0;
-	/*max-width: 60%;*/
-	/*text-align: center;*/
 	height: 60px;
 	line-height: 60px;
-	/*padding-top: 1px;*/
 	background-color: #212121;
 	color: #E0F2F1;
 	z-index: 10;
@@ -29,8 +36,7 @@
   position: fixed;
   bottom: 0;
 	left: 0;
-  /* Set the fixed height of the footer here */
   height: 60px;
 	line-height: 60px;
-  background-color: #212121;
+    z-index: 10;
 }

@@ -8,18 +8,29 @@
         <title>Register</title>
     </head>
     <body>
-        <div class="main col-xs-12">
-            <form class="" action="/register" method="post">
-                <label for="email">E-Mail Address</label>
-                <input type="text" name="email" value="name@example.com">
-                <label for="username">Name</label>
-                <input type="text" name="username" value="Bangarang Clipperbroke">
-                <label for="password">Password</label>
-                <input type="password" name="password" value="">
-                <label for="repeatpassword">Repeat Your Password</label>
-                <input type="password" name="repeater" value="">
-                <input type="submit" value="Submit">
+        <div class="site-wrapper">
+            <form class="container-fluid col-xs-12" action="/register" method="post">
+                <div class="form-group">
+                    <label for="email">E-Mail Address</label>
+                    <input type="text" name="email" value="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="username">Name</label>
+                    <input type="text" name="username" value="Bangarang Clipperbroke">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" value="">
+                </div>
+                <div class="form-group">
+                    <label for="repeatpassword">Repeat Your Password</label>
+                    <input type="password" name="repeater" value="">
+                </div>
+                <footer class="footer col-xs-12 col-lg-12">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block">
+                </footer>
             </form>
         </div>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </body>
 </html>
