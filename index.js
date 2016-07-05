@@ -58,13 +58,13 @@ http.listen(3005, function(){
 });
 
 io.on('connection', function (socket) {
-  console.log("socket connected" + socket.id);
+  // console.log("socket connected" + socket.id);
   // socket.emit('news', { hello: 'world' });
   //console.log(socket);
   socket.on('here', function (data) {
     //console.log(data);
   });
   socket.on('disconnect', function () {
-    io.emit('user disconnected');
+    console.log("disconnect");
   });
 });
