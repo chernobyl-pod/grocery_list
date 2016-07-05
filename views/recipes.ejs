@@ -25,32 +25,11 @@
 				<div class="recipe-row col-xs-8">
 					<fieldset class="col-xs-12">
 						<h1><%=household%></h1>
-
-
-							<% groceries.forEach(function(gro){ %>
-									<ul class="col-xs-12">
-											<li>
-													<h3><%= gro.name %></h3>
-											</li>
-									</ul>
-							<% }); %>
+            <h3>Recipes</h3>
 					</fieldset>
-				</div>
-				<div class="recipe-button-row col-xs-4">
-					<fieldset class="clear-buttons">
-							<% groceries.forEach(function(gro){ %>
-								<ul class="col-xs-12">
-									<li>
-											<form class="delete" action="/delete" method="post">
-												<input type="submit" name="delete" value="Delete">
-											</form>
-									</li>
-								</ul>
-							<% }); %>
-					</fieldset>
-					<form class="recipes" action="/recipes" method="get">
-						<input type="submit" name="recipes" value="Recipes">
-					</form>
+          <form class="addnewrecipe" action="/recipes/new" method="get">
+            <input type="submit" name="newrecipe" value="Add New Recipe">
+          </form>
 				</div>
 			</main>
 			<footer class="my-household-footer">

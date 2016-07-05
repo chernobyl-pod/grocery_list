@@ -17,6 +17,7 @@ var households = require('./routes/households');
 var addhousehold = require('./routes/addhousehold');
 var leave = require('./routes/leavehousehold');
 var newhousehold = require('./routes/newhousehold');
+var recipes = require('./routes/recipes');
 
 var app=express();
 var router = express.Router();
@@ -40,6 +41,7 @@ app.use('/households', households);
 app.use('/addhousehold', addhousehold);
 app.use('/leave', leave);
 app.use('/newhousehold', newhousehold);
+app.use('/recipes', recipes);
 
 var port = process.env.PORT || 3000;
 
