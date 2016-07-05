@@ -7,17 +7,21 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <main id="background">
-        <div class="main col-xs-12">
+        <div class="site-wrapper">
             <form class="form" action="/login" method="post">
-                <label for="email">Email</label>
-                <input type="text" name="email" value="">
-                <label for="password">Password</label>
-                <input type="text" name="password" value="">
-                <input type="submit" value="Submit">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="col-xs-12" type="text" name="email" value="">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="col-xs-12" type="text" name="password" value="">
+                </div>
+                <footer class="footer col-xs-12 col-lg-12">
+                    <input class="btn btn-primary btn-block" type="submit" value="Submit">
+                </footer>
             </form>
         </div>
-        </main>
     </body>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </html>
