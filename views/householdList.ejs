@@ -18,27 +18,18 @@
 			<main class="container-fluid">
 				<div class="recipe-row col-xs-8">
 					<fieldset class="col-xs-12">
-						<ul class="col-xs-12">
 							<% groceries.forEach(function(gro){ %>
-											<li>
-													<h3><%= gro.name %></h3>
-											</li>
+								<h3><%=gro.name%></h3>
+								<form class="" action="/households/<%=gro.name%>" method="post">
+									<input type="submit" name="selectHouse" value="Select Household">
+								</form>
+								<form class="" action="/leave/<%=gro.name%>" method="post">
+									<input type="submit" name="leaveHouse" value="Leave Household">
+								</form>
 							<% }); %>
-						</ul>
 					</fieldset>
 				</div>
 				<div class="recipe-button-row col-xs-4">
-					<fieldset class="clear-buttons">
-							<% groceries.forEach(function(gro){ %>
-								<ul class="col-xs-12">
-									<li>
-											<form class="delete" action="/delete" method="post">
-												<input type="submit" name="delete" value="Delete">
-											</form>
-									</li>
-								</ul>
-							<% }); %>
-					</fieldset>
 				</div>
 			</main>
 			<footer class="my-household-footer">

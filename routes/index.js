@@ -5,11 +5,9 @@ var knex = require('../db/knex');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  if (req.session.name) {
-    res.render('myhouse', {groceries: []});
-    console.log(req.session);
+  if (req.session.email) {
+    res.render('myhouse', {groceries: [], household: req.session.household});
   } else {
-    console.log(req.session);
     res.render('home');
   }
 });

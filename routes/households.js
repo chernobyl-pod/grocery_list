@@ -11,4 +11,9 @@ router.get('/', function(req, res) {
 
   });
 });
+
+router.post('/:name', function(req, res) {
+  req.session.household = req.params.name;
+  res.redirect('/');
+});
 module.exports = router;
