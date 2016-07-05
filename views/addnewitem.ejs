@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
 <head>
-	<title>My Household</title>
+	<title>Add New List Item</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
@@ -16,39 +16,21 @@
 				</form>
 			</header>
 			<main class="container-fluid">
-				<div class="recipe-row col-xs-8">
+				<h1>Add List Item</h1>
+				<div class="item-type col-xs-12">
 					<fieldset class="col-xs-12">
 
-							<% groceries.forEach(function(gro){ %>
-									<ul class="col-xs-12">
-											<li>
-													<h3><%= gro.title %></h3>
-											</li>
-									</ul>
-							<% }); %>
 					</fieldset>
 				</div>
-				<div class="recipe-button-row col-xs-4">
-					<fieldset class="clear-buttons">
+				<div class="item-list col-xs-12">
+					<fieldset class="col-xs-12">
 
-							<% groceries.forEach(function(gro){ %>
-								<ul class="col-xs-12">
-									<li>
-											<form class="delete" action="/delete" method="post">
-												<input type="submit" name="delete" value="Delete">
-											</form>
-									</li>
-								</ul>
-							<% }); %>
 					</fieldset>
 				</div>
 			</main>
-			<footer class="my-household-footer">
+			<footer class="add-item-footer">
 				<form class="add" action="/add" method="post">
-					<input type="submit" name="add-item" value="Add">
-				</form>
-				<form class="delete-all" action="/delete" method="post">
-					<input type="submit" name="delete-all" value="Delete All">
+					<input type="submit" name="add-item-to-list" value="Add">
 				</form>
 			</footer>
 
