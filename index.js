@@ -58,10 +58,10 @@ http.listen(3005, function(){
 });
 
 io.on('connection', function (socket) {
-  console.log("socket connected" + socket.id);
+  // console.log("socket connected" + socket.id);
   // socket.emit('news', { hello: 'world' });
-  console.log(socket);
+  // console.log(socket);
   socket.on('here', function (data) {
-    console.log(data);
+    // console.log(data);
   });
 });
