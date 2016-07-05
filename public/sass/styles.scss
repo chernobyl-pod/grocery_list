@@ -1,19 +1,18 @@
-.links-top {
+.homeform {
   text-align: center;
   padding: 25% 25%;
 }
 
-.site-wrapper{
-	overflow: hidden;
-   background-image: url('bg-1920-1080-8.jpg');
+
+main {
+   background-image: url('bg-1920-1080-8.jpg') no-repeat;
     -moz-background-size: cover;
     -o-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
 }
 
-
-.header {
+header {
 	position: fixed;
 	margin-top: 0;
 	width: 100%;

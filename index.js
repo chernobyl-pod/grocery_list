@@ -8,6 +8,9 @@ var cookieSession = require('cookie-session');
 var knex = require('knex');
 var url = require('url');
 require('dotenv').config();
+var http = require('http').Server(express);
+var io = require('socket.io')(http);
+
 
 var login = require('./routes/login');
 var register = require('./routes/register');
@@ -47,4 +50,18 @@ var port = process.env.PORT || 3000;
 
 app.listen(port, function() {
   console.log("Listening on: " + port + ".");
+});
+
+
+http.listen(3005, function(){
+  console.log("socket listen on 3005");
+});
+
+io.on('connection', function (socket) {
+  console.log("socket connected" + socket.id);
+  // socket.emit('news', { hello: 'world' });
+  console.log(socket);
+  socket.on('here', function (data) {
+    console.log(data);
+  });
 });

@@ -22,13 +22,28 @@
 				</form>
 			</header>
       <h1>Add New Recipe</h1>
-      <form class="addnewrecipe" action="/recipes/new" method="post">
-        <label for="recipename">Name</label>
+		<main>
+			<fieldset>
+				<form class="recipe-query" action="/recipe-query" method="get">
+					<input type="text" name="recipename" value="Search Name">
+					<input type="number" name="numrecipes" value="Number of Results">
+					<input type="text" name="allergies" value="Allergies">
+					<input type="dropdown" name="dietarypref" value="Preferred Diet">
+					<input type="text" name="category" value="Style">
+					<input type="dropdown" name="coursetype" value="Course">
+					<input type="button" name="submit" value="Submit">
+				</form>
+			</fieldset>
+		</main>
+		<footer class="add-recipe-footer">
+			<form class="add" action="/recipes/new" method="post">
+        <label for="newrecipe">New Recipe</label>
         <input type="text" name="recipename">
         <label for="category">Category</label>
         <input type="text" name="category">
-        <input type="submit" name="name" value="Submit">
-      </form>
-		</body>
+				<input type="submit" name="add-recipe-to-db" value="Add Recipe">
+			</form>
+		</footer>
+	</body>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </html>
