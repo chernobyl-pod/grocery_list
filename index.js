@@ -20,6 +20,7 @@ var households = require('./routes/households');
 var addhousehold = require('./routes/addhousehold');
 var leave = require('./routes/leavehousehold');
 var newhousehold = require('./routes/newhousehold');
+var recipes = require('./routes/recipes');
 
 var app=express();
 var router = express.Router();
@@ -43,6 +44,7 @@ app.use('/households', households);
 app.use('/addhousehold', addhousehold);
 app.use('/leave', leave);
 app.use('/newhousehold', newhousehold);
+app.use('/recipes', recipes);
 
 var port = process.env.PORT || 3000;
 
@@ -58,8 +60,11 @@ http.listen(3005, function(){
 io.on('connection', function (socket) {
   console.log("socket connected" + socket.id);
   // socket.emit('news', { hello: 'world' });
-  console.log(socket);
+  //console.log(socket);
   socket.on('here', function (data) {
-    console.log(data);
+    //console.log(data);
+  });
+  socket.on('disconnect', function () {
+    io.emit('user disconnected');
   });
 });

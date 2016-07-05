@@ -1,25 +1,13 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>My Household</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.js"></script>
-	<script>
-		var socket = io.connect('http://localhost:3005');
-		socket.on('connect', function (data) {
-			console.log('connected');
-			socket.emit('here', { my: 'data' });
-		});
-	</script>
 </head>
-
 		<body>
-            <div class="site-wrapper">
-
-			<header class="masthead-clearfix">
+			<header class="links-top">
 				<form class="logout" action="/logout" method="get">
 					<input type="submit" name="logout" value="Log Out">
 				</form>
@@ -27,7 +15,7 @@
 					<input type="submit" name="change" value="Change Household">
 				</form>
 				<form class="addhousehold" action="/addhousehold" method="get">
-					<input type="submit" name="joinhousehold" value="Join Household">
+					<input type="submit" name="addhousehold" value="Add Household">
 				</form>
 				<form class="newhousehold" action="/newhousehold" method="get">
 					<input type="submit" name="newhousehold" value="Create New Household">
@@ -37,32 +25,11 @@
 				<div class="recipe-row col-xs-8">
 					<fieldset class="col-xs-12">
 						<h1><%=household%></h1>
-
-
-							<% groceries.forEach(function(gro){ %>
-									<ul class="col-xs-12">
-											<li>
-													<h3><%= gro.name %></h3>
-											</li>
-									</ul>
-							<% }); %>
+            <h3>Recipes</h3>
 					</fieldset>
-				</div>
-				<div class="recipe-button-row col-xs-4">
-					<fieldset class="clear-buttons">
-							<% groceries.forEach(function(gro){ %>
-								<ul class="col-xs-12">
-									<li>
-											<form class="delete" action="/delete" method="post">
-												<input type="submit" name="delete" value="Delete">
-											</form>
-									</li>
-								</ul>
-							<% }); %>
-					</fieldset>
-					<form class="recipes" action="/recipes" method="get">
-						<input type="submit" name="recipes" value="Recipes">
-					</form>
+          <form class="addnewrecipe" action="/recipes/new" method="get">
+            <input type="submit" name="newrecipe" value="Add New Recipe">
+          </form>
 				</div>
 			</main>
 			<footer class="my-household-footer">
@@ -73,7 +40,7 @@
 					<input type="submit" name="delete-all" value="Delete All">
 				</form>
 			</footer>
-        </div>
-    </body>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+		</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </html>
