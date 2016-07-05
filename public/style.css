@@ -12,16 +12,25 @@
     background-size: cover;
 }
 
-
-.header {
+.masthead-clearfix {
 	position: fixed;
-	margin-top: 0;
-	width: 100%;
+	top: 0;
+	/*max-width: 60%;*/
+	/*text-align: center;*/
 	height: 60px;
 	line-height: 60px;
+	/*padding-top: 1px;*/
+	background-color: #212121;
+	color: #E0F2F1;
 	z-index: 10;
-	color: black;
-	background-color: grey;
-	opacity: 0.8;
-	text-align: center;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+	left: 0;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+	line-height: 60px;
+  background-color: #212121;
 }
