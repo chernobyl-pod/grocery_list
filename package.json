@@ -4,7 +4,8 @@
   "description": "A household grocery list",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www",
+    "knex": "knex"
   },
   "repository": {
     "type": "git",
