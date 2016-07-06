@@ -48,8 +48,11 @@ router.get('/:item_id', function(req, res, next){
     if (!error && response.statusCode == 200) {
       var info = JSON.parse(body);
       console.log(info);
-
+      
       res.render('addnewrecipe', {ingredients: info});
+    } else {
+      console.log(error);
+      res.send("We done goofed");
     }
   }
   request(options, callback);

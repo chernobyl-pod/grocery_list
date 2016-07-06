@@ -74,6 +74,17 @@
                                 </form>
                             </div>
                         </div>
+												<div class="row">
+													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+														<% if(typeof ingredients != "undefined") { %>
+															<% ingredients[0].steps[0].ingredients.forEach(function(item){ %>
+																<div class="row">
+																	<img src="<%=item.image%>" alt="<%=item.name%>" height="100" width="100">
+																	<p><%=item.name%></p>
+																</div>
+															<%  })} %>
+														</div>
+												</div>
                     <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="inner">
                                 <p class="footer-p">
