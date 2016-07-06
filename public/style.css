@@ -10,10 +10,13 @@ body {
   padding-right:1%;
   padding-left:1%;
 }
+.btn{
+    margin-left: 1%;
+    margin-right: 1%;
+}
 
 .btn-group {
-    margin-top: 1%;
-    right: 0;
+    bottom: 0;
     position: fixed;
 	line-height: 60px;
 }

@@ -19,20 +19,7 @@
     <body>
         <header class="header col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<h3 class="col-xs-12 col-lg-6">Currently viewing: <span class="label label-default"><%=household%></span></h3>
-            <div class="btn-group col-xs-12 col-lg-6">
-                <form class="logout" action="/logout" method="get">
-                    <input class="btn btn-standard col-xs-3" type="submit" name="logout" value="Log Out">
-                </form>
-                <form class="change" action="/households" method="get">
-                    <input class="btn btn-standard col-xs-3" type="submit" name="change" value="Change Household">
-                </form>
-                <form class="addhousehold" action="/addhousehold" method="get">
-                    <input class="btn btn-standard col-xs-3" type="submit" name="joinhousehold" value="Join Household">
-                </form>
-                <form class="newhousehold" action="/newhousehold" method="get">
-                    <input class="btn btn-standard col-xs-3" type="submit" name="newhousehold" value="Create New Household">
-                </form>
-            </div>
+
         </header>
         <div class="site-wrapper">
             <main class="container-fluid">
@@ -53,7 +40,7 @@
                             <ul class="col-xs-12">
                                 <li>
                                     <form class="delete" action="/delete" method="post">
-                                        <input type="submit" name="delete" value="Delete">
+                                        <input type="submit" name="delete" value="Delete" class>
                                     </form>
                                 </li>
                             </ul>
@@ -63,14 +50,28 @@
                 <form class="recipes" action="/recipes" method="get">
                     <input type="submit" name="recipes" value="Recipes">
                 </form>
-            </main>
-            <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <form class="add col-xs-6 col-lg-6" action="/addnewitem" method="get">
+				<form class="add col-xs-6 col-lg-6" action="/addnewitem" method="get">
                     <input type="submit" name="add-item" value="Add" class="btn btn-primary">
                 </form>
                 <form class="delete-all col-xs-6 col-lg-6" action="/delete" method="post">
                     <input type="submit" name="delete-all" value="Delete All" class="btn btn-primary">
                 </form>
+            </main>
+            <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="btn-group">
+	                <form class="logout" action="/logout" method="get">
+	                    <input class="btn btn-standard" type="submit" name="logout" value="Log Out">
+	                </form>
+	                <form class="change" action="/households" method="get">
+	                    <input class="btn btn-standard" type="submit" name="change" value="Change Household">
+	                </form>
+	                <form class="addhousehold" action="/addhousehold" method="get">
+	                    <input class="btn btn-standard" type="submit" name="joinhousehold" value="Join Household">
+	                </form>
+	                <form class="newhousehold" action="/newhousehold" method="get">
+	                    <input class="btn btn-standard" type="submit" name="newhousehold" value="Create New Household">
+	                </form>
+	            </div>
             </footer>
         </div>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
