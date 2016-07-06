@@ -17,7 +17,7 @@ router.post('/add_item', function(req, res) {
 });
 
 router.post('/search_api_item', function(req, res, next){
-  console.log(req.body);
+  //console.log(req.body);
 //  https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?number=10&offset=0&query=pasta
 var options = {
   url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?number=" + req.body.num_results + "&offset=0&query=" + req.body.search,
