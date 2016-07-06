@@ -22,6 +22,7 @@ var leave = require('./routes/leavehousehold');
 var newhousehold = require('./routes/newhousehold');
 var recipes = require('./routes/recipes');
 var addnewitem = require('./routes/addnewitem');
+var recipe-query = require('./routes/recipe-query');
 
 
 var app=express();
@@ -48,6 +49,7 @@ app.use('/leave', leave);
 app.use('/newhousehold', newhousehold);
 app.use('/recipes', recipes);
 app.use('/addnewitem', addnewitem);
+app.use('/recipe-query', recipe-query);
 
 var port = process.env.PORT || 3000;
 
