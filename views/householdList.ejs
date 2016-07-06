@@ -2,7 +2,9 @@
 <html>
 
 <head>
-	<title>My Household</title>
+	<title>Select Household</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
@@ -42,13 +44,16 @@
 				<div class="recipe-button-row col-xs-4">
 				</div>
 			</main>
-			<footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<form class="add col-6 btn btn-default" action="/add" method="post">
 					<input type="submit" name="add-item" value="Add">
 				</form>
-				<%# <form class="delete-all col-6 btn btn-danger" action="/delete" method="post">
-					<input type="submit" name="delete-all" value="Delete">
-				</form>%>
+
+			<footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="inner">
+					<p class="footer-p">
+						This webpage created by <a href="https://github.com/chernobyl-pod">Chernobyl Pod, July 2016</a>
+					</p>
+				</div>
 			</footer>
         </div>
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
