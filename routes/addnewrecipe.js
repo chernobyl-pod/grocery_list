@@ -13,13 +13,33 @@ router.post('/', function(req, res) {
   });
 });
 
+router.get('/', function(req, res) {
+  knex('recipes').where('name', req.session.recipe)
+  .then(function(recipe) {
+    knex('recipes-food').where('recipes_id', recipe[0].id)
+    .then(function(ingreds) {
+      var ingrids = [];
+      for (var i = 0; i < ingreds.length; i++) {
+        ingrids.push(ingreds[i].food_id);
+      }
+      knex('food').whereIn('id', ingrids)
+      .then(function(foods) {
+        var foodlist = [];
+        for (var i = 0; i < foods.length; i++) {
+          foodlist.push(foods[i].name);
+        }
+        res.render('createrecipe', {recipe: req.session.recipe, ingredients: foodlist});
+      });
+    });
+  });
+});
+
 router.post('/addingredient', function(req, res) {
   knex('food').where('name', req.body.ingredient)
   .then(function(food) {
     if (food[0]) {
       knex('recipes').where('name', req.session.recipe)
       .then(function(recipe) {
-        req.session.recipe = null;
         knex('recipes-food').insert([{recipes_id: recipe[0].id, food_id: food[0].id}])
         .then(function() {
           res.redirect('/addnewrecipe');
@@ -27,16 +47,15 @@ router.post('/addingredient', function(req, res) {
       });
     }
     else {
-      knex('food').insert('name', req.body.ingredient)
+      knex('food').insert([{name: req.body.ingredient}])
       .then(function() {
         knex('recipes').where('name', req.session.recipe)
         .then(function(recipe) {
-          req.session.recipe = null;
           knex('food').where('name', req.body.ingredient)
           .then(function(food) {
             knex('recipes-food').insert([{recipes_id: recipe[0].id, food_id: food[0].id}])
             .then(function() {
-              res.redirect('/addnewrecipe');
+              res.redirect('/addnewrecipe/');
             });
           });
         });
@@ -45,4 +64,16 @@ router.post('/addingredient', function(req, res) {
   });
 });
 
+router.post('/submit', function(req, res) {
+  knex('households').where('name', req.session.household)
+  .then(function(house) {
+    knex('recipes').where('name', req.session.recipe)
+    .then(function(recipe) {
+      knex('households-recipes').insert([{households_id: house[0].id, recipes_id: recipe[0].id}])
+      .then(function() {
+        res.redirect('/recipes');
+      });
+    });
+  });
+});
 module.exports = router;
