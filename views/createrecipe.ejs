@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create a New Recipe</title>
+  </head>
+  <body>
+    <h1><%=recipe%></h1>
+    <% ingredients.forEach(function(ingredient) { %>
+      <h3><ingredient.name</h3>
+    <% }) %>
+    <form class="addingredient" action="/addnewrecipe/addingredient/" method="post">
+      <input type="text" name="ingredient" placeholder="Ingredient">
+      <input type="submit" name="add" value="Add Ingredient">
+    </form>
+    <form class="addnewrecipe" action="/addnewrecipe/submit" method="post">
+      <input type="submit" name="recipe" value="Create Recipe">
+    </form>
+  </body>
+</html>
