@@ -20,7 +20,10 @@ router.post('/:name', function(req, res) {
   .then(function(house) {
     knex('food').where('name', req.params.name)
     .then(function(food) {
-      console.log(food);
+      knex('households-food').where({households_id: house[0].id, food_id: food[0].id}).del()
+      .then(function() {
+        res.redirect('/');
+      })
     })
   })
 })
