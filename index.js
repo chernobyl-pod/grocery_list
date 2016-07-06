@@ -21,6 +21,8 @@ var addhousehold = require('./routes/addhousehold');
 var leave = require('./routes/leavehousehold');
 var newhousehold = require('./routes/newhousehold');
 var recipes = require('./routes/recipes');
+var addnewitem = require('./routes/addnewitem');
+
 
 var app=express();
 var router = express.Router();
@@ -34,7 +36,7 @@ app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/public'));
 
 app.use('/', home);
 app.use('/login', login);
@@ -45,6 +47,7 @@ app.use('/addhousehold', addhousehold);
 app.use('/leave', leave);
 app.use('/newhousehold', newhousehold);
 app.use('/recipes', recipes);
+app.use('/addnewitem', addnewitem);
 
 var port = process.env.PORT || 3000;
 
