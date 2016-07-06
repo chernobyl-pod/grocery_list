@@ -58,9 +58,12 @@
                         <% }); %>
                     </fieldset>
                 </div>
+								<form class="recipes" action="/recipes" method="get">
+									<input type="submit" name="recipes" value="Recipes">
+								</form>
             </main>
-            <footer class="footer">
-                <form class="add" action="/add" method="post">
+            <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <form class="add" action="/addnewitem" method="get">
                     <input type="submit" name="add-item" value="Add">
                 </form>
                 <form class="delete-all" action="/delete" method="post">
