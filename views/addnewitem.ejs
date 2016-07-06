@@ -39,14 +39,12 @@
 
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <% if(typeof info != "undefined") { %>
-              <h4>
-                <% info.products.forEach(function(item){ %>
-                  <img src=<%item.image%> alt="Image for food item" >
-                  <input type="button" name=<%item.title%> value=<%item.title%> >
-                <%  })} %>
-              </h4>
+            <% if(typeof product != "undefined") { %>
+              <% product.products.forEach(function(item){ %>
+                <img src=<%=item.image%>>
 
+                <input type="button" name=<%=item.title%> value=<%=item.title%>>
+              <%  })} %>
           </div>
         </div>
 

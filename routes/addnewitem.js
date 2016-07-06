@@ -37,7 +37,7 @@ function callback(error, response, body) {
     var info = JSON.parse(body);
     console.log(info);
 
-    res.render('addnewitem', {info: info});
+    res.render('addnewitem', {product: info});
   }
 }
 
