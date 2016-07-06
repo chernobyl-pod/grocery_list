@@ -2,20 +2,27 @@
 <html>
 	<head>
 		<title>Add Custom Recipe</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<header class="header">
-			<form class="logout" action="/logout" method="get">
-				<input type="submit" name="logout" value="Log Out">
-			</form>
-			<form class="change" action="/index" method="get">
-				<input type="submit" name="change" value="Change Household">
-			</form>
-		</header>
-		<main>
+		<div class="container-fluid">
+			<div class="site-wrapper-inner">
+
+				<header class="masthead-clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		            <h3 class="hidden-xs col-lg-6">Current List:
+		                <span class="label label-default"><%=household%></span>
+		            </h3>
+		            <h4 class="col-xs-6 hidden-lg">
+		                <%=household%>
+		            </h4>
+		            <form class="recipes col-xs-6 col-lg-6" action="/recipes" method="get">
+		                <input type="submit" name="recipes" value="Recipes" class="recipes btn btn-primary col-xs-12 col-lg-12">
+		            </form>
+		        </header>
 			<fieldset>
 				<form class="recipe-query" action="/recipe-query" method="post">
 					<input type="text" name="recipename" placeholder="Search Name">
@@ -42,13 +49,16 @@
 						<%  })} %>
 				</div>
 			</div>
+		</div>
 
+		</div>
 
-		</main>
 		<footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			<form class="add" action="/new" method="post">
-				<input type="submit" name="add-recipe-to-db" value="Add Recipe">
-			</form>
+			<div class="inner">
+				<p class="footer-p">
+					This webpage created by <a href="https://github.com/chernobyl-pod">Chernobyl Pod, July 2016</a>
+				</p>
+			</div>
 		</footer>
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

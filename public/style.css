@@ -11,6 +11,10 @@ body {
     margin-top: 15px;
 }
 
+.recipes {
+    line-height: 3;
+}
+
 .container-fluid{
     min-height: 900px;
     margin-top: 80px;
@@ -21,6 +25,7 @@ body {
 .masthead-clearfix {
 	position: fixed;
 	top: 0;
+    left: 0;
 	height: 60px;
 	line-height: 60px;
 	background-color: #212121;
