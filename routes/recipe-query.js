@@ -21,7 +21,7 @@ router.post('/recipe-query', function(req, res, next){
   // <input type="dropdown" name="coursetype" value="Course">
 // https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?excludeIngredients=coconut&intolerances=egg%2C+gluten&limitLicense=false&number=10&offset=0&query=burger&type=main+course
 var options = {
-  url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?excludeIngredients" + req.body.num_results + "&offset=0&query=" + req.body.search,
+  url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?intolerances=" + req.body.allergies + "&offset=0&query=" + req.body.search,
   headers: {
     'X-Mashape-Key': 'WZlhmsK0m4mshHdDeHvnP8841dmdp1P8HzBjsnlXv0k9tJoybe',
     'Accept': "application/json"
