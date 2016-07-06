@@ -45,8 +45,37 @@ router.post('/add_item', function(req, res) {
 });
 
 router.post('/select', function(req, res) {
-
-})
+  var quantity = 1;
+  knex.select('id').from('households').where('name', req.session.household)
+  .then(function(house) {
+    knex('food').where('name', req.body.chosen_name)
+    .then(function(thisfood) {
+      if (thisfood[0]) {
+        knex('households-food').where({households_id: house[0].id, food_id: thisfood[0].id})
+        .then(function(exists) {
+          if (!exists[0]) {
+            knex('households-food').insert({households_id: house[0].id, food_id: thisfood[0].id})
+            .then(function() {
+              res.redirect('/');
+            });
+          }
+        });
+      }
+      else {
+        knex('food').insert({name: req.body.chosen_name, quantity: quantity})
+        .then(function() {
+          knex.from('food').where('name', req.body.chosen_name)
+          .then(function(thisfood) {
+            knex('households-food').insert({households_id: house[0].id, food_id: thisfood[0].id})
+            .then(function() {
+              res.redirect('/');
+            });
+          });
+        });
+      }
+    });
+  });
+});
 
 router.post('/search_api_item', function(req, res, next){
   //console.log(req.body);

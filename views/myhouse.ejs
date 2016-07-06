@@ -38,13 +38,13 @@
             <main class="container-fluid">
                 <div class="recipe-row col-xs-8">
                     <fieldset class="col-xs-12">
+                      <ul class="col-xs-12">
                         <% groceries.forEach(function(gro){ %>
-                            <ul class="col-xs-12">
                                 <li>
                                     <h3><%= gro.name %></h3>
                                 </li>
-                            </ul>
                         <% }); %>
+                      </ul>
                     </fieldset>
                 </div>
                 <div class="recipe-button-row col-xs-4">
