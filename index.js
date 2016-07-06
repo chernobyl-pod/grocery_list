@@ -24,6 +24,7 @@ var recipes = require('./routes/recipes');
 var addnewitem = require('./routes/addnewitem');
 var recipequery = require('./routes/recipe-query');
 var remove = require('./routes/remove');
+var addnewrecipe = require('./routes/addnewrecipe');
 
 
 var app=express();
@@ -52,6 +53,7 @@ app.use('/recipes', recipes);
 app.use('/addnewitem', addnewitem);
 app.use('/recipe-query', recipequery);
 app.use('/delete', remove);
+app.use('/addnewrecipe', addnewrecipe);
 
 var port = process.env.PORT || 3000;
 
@@ -71,7 +73,5 @@ io.on('connection', function (socket) {
   socket.on('here', function (data) {
     //console.log(data);
   });
-  socket.on('disconnect', function () {
-    console.log("disconnect");
-  });
+
 });
