@@ -17,12 +17,28 @@
     </head>
 
     <body>
-        <header class="header col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <header class="masthead-clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<h3 class="col-xs-12 col-lg-6">Currently viewing: <span class="label label-default"><%=household%></span></h3>
-
         </header>
-        <div class="site-wrapper">
-            <main class="container-fluid">
+        <div class="container-fluid">
+            <div class="site-wrapper-inner">
+                <header class="sub-header">
+                    <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <form class="logout" action="/logout" method="get">
+                            <input class="btn btn-standard col-xs-3" type="submit" name="logout" value="Log Out">
+                        </form>
+                        <form class="change" action="/households" method="get">
+                            <input class="btn btn-standard col-xs-3" type="submit" name="change" value="Change Household">
+                        </form>
+                        <form class="addhousehold" action="/addhousehold" method="get">
+                            <input class="btn btn-standard col-xs-3" type="submit" name="joinhousehold" value="Join Household">
+                        </form>
+                        <form class="newhousehold" action="/newhousehold" method="get">
+                            <input class="btn btn-standard col-xs-3" type="submit" name="newhousehold" value="Create New Household">
+                        </form>
+                    </div>
+                </header>
+
                 <div class="recipe-row col-xs-8">
                     <fieldset class="col-xs-12">
                         <% groceries.forEach(function(gro){ %>
@@ -56,24 +72,17 @@
                 <form class="delete-all col-xs-6 col-lg-6" action="/delete" method="post">
                     <input type="submit" name="delete-all" value="Delete All" class="btn btn-primary">
                 </form>
-            </main>
-            <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="btn-group">
-	                <form class="logout" action="/logout" method="get">
-	                    <input class="btn btn-standard" type="submit" name="logout" value="Log Out">
-	                </form>
-	                <form class="change" action="/households" method="get">
-	                    <input class="btn btn-standard" type="submit" name="change" value="Change Household">
-	                </form>
-	                <form class="addhousehold" action="/addhousehold" method="get">
-	                    <input class="btn btn-standard" type="submit" name="joinhousehold" value="Join Household">
-	                </form>
-	                <form class="newhousehold" action="/newhousehold" method="get">
-	                    <input class="btn btn-standard" type="submit" name="newhousehold" value="Create New Household">
-	                </form>
-	            </div>
-            </footer>
+                <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="inner">
+                        <p class="footer-p">
+                            This webpage created by Chernobyl Pod, July 2016
+                        </p>
+                    </div>
+                </footer>
         </div>
+
+        </div>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </body>
 </html>
