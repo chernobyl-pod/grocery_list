@@ -44,7 +44,32 @@
         <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
 
-        </footer>
+            </fieldset>
+        </div>
+        <div class="container-fluid">
+            <h1>Add Custom Item</h1>
+            <div class="item-type col-xs-12">
+                <fieldset class="col-xs-12">
+                    <form class="item-name" action="/addnewitem/add_item" method="post">
+                        <input type="text" name="item_name" value="Item Name">
+                        <input type="number" name="item_qty" value="">
+                        <input type="submit" name="add-item-to-list" value="Add">
+                </fieldset>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <% if(typeof product != "undefined") { %>
+              <% product.products.forEach(function(item){ %>
+                <img src=<%=item.image%>>
+
+                <input type="button" name=<%=item.title%> value=<%=item.title%>>
+              <%  })} %>
+          </div>
+        </div>
+
 
 
     </body>

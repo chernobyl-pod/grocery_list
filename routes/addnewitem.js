@@ -12,16 +12,44 @@ router.get('/', function(req, res) {
 });
 
 router.post('/add_item', function(req, res) {
-  knex('food').insert({name: req.body.item_name, quantity: req.body.item_quantity});
-  res.redirect('/');
+  knex.select('id').from('households').where('name', req.session.household)
+  .then(function(house) {
+    knex('food').where('name', req.body.item_name)
+    .then(function(thisfood) {
+      if (thisfood[0]) {
+        knex('households-food').where({households_id: house[0].id, food_id: thisfood[0].id})
+        .then(function(existing) {
+          if (!existing[0]) {
+            knex('households-food').insert({households_id: house[0].id, food_id: thisfood[0].id})
+            .then(function() {
+              res.redirect('/');
+            });
+          }
+        });
+      }
+      else {
+        knex('food').insert({name: req.body.item_name, quantity: req.body.item_qty})
+        .then(function() {
+          knex.select('id').from('food').where('name', req.body.item_name)
+          .then(function(food) {
+            knex('households-food').insert({households_id: house[0].id, food_id: food[0].id})
+            .then(function() {
+              res.redirect('/');
+            });
+          });
+        });
+      }
+    });
+  });
+
 });
 
 router.post('/select', function(req, res) {
-  
+
 })
 
 router.post('/search_api_item', function(req, res, next){
-  console.log(req.body);
+  //console.log(req.body);
 //  https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?number=10&offset=0&query=pasta
 var options = {
   url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?number=" + req.body.num_results + "&offset=0&query=" + req.body.search,
@@ -31,17 +59,20 @@ var options = {
   }
 };
 
+
 function callback(error, response, body) {
   if (!error && response.statusCode == 200) {
     var info = JSON.parse(body);
     console.log(info);
+
+    res.render('addnewitem', {product: info});
   }
 }
 
 request(options, callback);
 
 
-  res.render('addnewitem');
+
 });
 
 //
