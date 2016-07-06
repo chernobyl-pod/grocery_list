@@ -27,6 +27,20 @@
 					<input type="submit" name="submit" value="Submit">
 				</form>
 			</fieldset>
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<% if(typeof recipe != "undefined") { %>
+						<% recipe.results.forEach(function(item){ %>
+							<img src="https://spoonacular.com/recipeImages/<%=item.image%>" alt="<%=item.title%>" height="100" width="100">
+
+							<label for="<%=item.title%>"><%=item.readyInMinutes%>
+							<input type="button" name="<%=item.title%>" value="<%=item.title%>">
+						<%  })} %>
+				</div>
+			</div>
+
+
 		</main>
 		<footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<form class="add" action="/new" method="post">
