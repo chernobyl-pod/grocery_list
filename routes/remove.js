@@ -13,6 +13,16 @@ router.post('/', function(req, res) {
       res.redirect('/');
     })
   });
+});
+
+router.post('/:name', function(req, res) {
+  knex('households').where('name', req.session.household)
+  .then(function(house) {
+    knex('food').where('name', req.params.name)
+    .then(function(food) {
+      console.log(food);
+    })
+  })
 })
 
 module.exports = router;

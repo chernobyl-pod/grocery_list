@@ -55,6 +55,9 @@ router.post('/select', function(req, res) {
         .then(function(exists) {
           if (!exists[0]) {
             knex('households-food').insert({households_id: house[0].id, food_id: thisfood[0].id})
+            .then(function() {
+              res.redirect('/');
+            });
           }
           res.redirect('/');
         });
