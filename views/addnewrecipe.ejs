@@ -14,10 +14,10 @@
 
 				<header class="masthead-clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		            <h3 class="hidden-xs col-lg-6">Current List:
-		                <span class="label label-default"><%=household%></span>
+		                <span class="label label-default"></span>
 		            </h3>
 		            <h4 class="col-xs-6 hidden-lg">
-		                <%=household%>
+
 		            </h4>
 		            <form class="recipes col-xs-6 col-lg-6" action="/recipes" method="get">
 		                <input type="submit" name="recipes" value="Recipes" class="recipes btn btn-primary col-xs-12 col-lg-12">
@@ -42,12 +42,9 @@
 					<% if(typeof recipe != "undefined") { %>
 						<% recipe.results.forEach(function(item){ %>
 							<div class="row">
-
 								<img src="https://spoonacular.com/recipeImages/<%=item.image%>" alt="<%=item.title%>" height="100" width="100">
-								<label for="<%=item.title%>"><%=item.title%>
-								<a type="button" id="<%=item.id%>" value="Get the ingredients!">item.title<a/>
+								<a href="/recipe-query/<%=item.id%>" class="btn"><%=item.title%></a>
 							</div>
-
 						<%  })} %>
 				</div>
 			</div>
