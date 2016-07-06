@@ -10,8 +10,9 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 	<body>
-        <div class="site-wrapper">
+		<div class="container-fluid">
 
+        <div class="site-wrapper-inner">
 			<header class="header col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
 				<form class="logout col-3 btn btn-default" action="/logout" method="get">
 					<input type="submit" name="logout" value="Log Out">
@@ -27,7 +28,6 @@
 				</form>
                 <a href="/newhousehold" class="btn btn-default">Link</a>
 			</header>
-			<main class="container-fluid">
 				<div class="recipe-row col-xs-8">
 					<fieldset class="col-xs-12">
 							<% groceries.forEach(function(gro){ %>
@@ -43,7 +43,6 @@
 				</div>
 				<div class="recipe-button-row col-xs-4">
 				</div>
-			</main>
 				<form class="add col-6 btn btn-default" action="/add" method="post">
 					<input type="submit" name="add-item" value="Add">
 				</form>
@@ -56,6 +55,7 @@
 				</div>
 			</footer>
         </div>
+	</div>
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </body>
