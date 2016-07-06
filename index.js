@@ -23,6 +23,7 @@ var newhousehold = require('./routes/newhousehold');
 var recipes = require('./routes/recipes');
 var addnewitem = require('./routes/addnewitem');
 var recipequery = require('./routes/recipe-query');
+var remove = require('./routes/remove');
 
 
 var app=express();
@@ -37,7 +38,7 @@ app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.use('/', home);
 app.use('/login', login);
@@ -50,6 +51,7 @@ app.use('/newhousehold', newhousehold);
 app.use('/recipes', recipes);
 app.use('/addnewitem', addnewitem);
 app.use('/recipe-query', recipequery);
+app.use('/delete', remove);
 
 var port = process.env.PORT || 3000;
 
