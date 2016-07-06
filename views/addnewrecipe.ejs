@@ -25,12 +25,12 @@
 		        </header>
 			<fieldset>
 				<form class="recipe-query" action="/recipe-query" method="post">
-					<input type="text" name="recipename" value="Search Name">
+					<input type="text" name="recipename" placeholder="Search Name">
 					<input type="number" name="numrecipes" value="">
-					<input type="text" name="allergies" value="Allergies">
-					<input type="dropdown" name="dietarypref" value="Preferred Diet">
-					<input type="text" name="genre" value="Style">
-					<input type="dropdown" name="coursetype" value="Course">
+					<input type="text" name="allergies" placeholder="Allergies">
+					<input type="dropdown" name="dietarypref" placeholder="Preferred Diet">
+					<input type="text" name="genre" placeholder="Style">
+					<input type="dropdown" name="coursetype" placeholder="Course">
 					<input type="submit" name="submit" value="Submit">
 				</form>
 			</fieldset>
@@ -40,7 +40,7 @@
 					<% if(typeof recipe != "undefined") { %>
 						<% recipe.results.forEach(function(item){ %>
 							<img src="https://spoonacular.com/recipeImages/<%=item.image%>" alt="<%=item.title%>" height="100" width="100">
-
+							
 							<label for="<%=item.title%>"><%=item.readyInMinutes%>
 							<input type="button" name="<%=item.title%>" value="<%=item.title%>">
 						<%  })} %>

@@ -64,7 +64,7 @@
                         <% groceries.forEach(function(gro){ %>
                             <ul class="col-xs-12">
                                 <li>
-                                    <form class="delete" action="/delete/<%=gro%>" method="delete">
+                                    <form class="delete" action="/delete/<%=gro.name%>" method="post">
                                         <input type="submit" name="delete" value="Delete">
                                     </form>
                                 </li>

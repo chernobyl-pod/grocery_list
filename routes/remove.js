@@ -13,6 +13,19 @@ router.post('/', function(req, res) {
       res.redirect('/');
     })
   });
+});
+
+router.post('/:name', function(req, res) {
+  knex('households').where('name', req.session.household)
+  .then(function(house) {
+    knex('food').where('name', req.params.name)
+    .then(function(food) {
+      knex('households-food').where({households_id: house[0].id, food_id: food[0].id}).del()
+      .then(function() {
+        res.redirect('/');
+      })
+    })
+  })
 })
 
 module.exports = router;
