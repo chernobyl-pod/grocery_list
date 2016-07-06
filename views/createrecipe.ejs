@@ -7,7 +7,7 @@
   <body>
     <h1><%=recipe%></h1>
     <% ingredients.forEach(function(ingredient) { %>
-      <h3><ingredient.name</h3>
+      <h3><%=ingredient%></h3>
     <% }) %>
     <form class="addingredient" action="/addnewrecipe/addingredient/" method="post">
       <input type="text" name="ingredient" placeholder="Ingredient">
