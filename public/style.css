@@ -6,10 +6,22 @@ body {
     background-size: cover;
 }
 
-.links-top {
-  text-align: center;
-  padding: 25% 25%;
+.col {
+  padding-right:1%;
+  padding-left:1%;
 }
+
+.btn-group {
+    margin-top: 1%;
+    right: 0;
+    position: fixed;
+	line-height: 60px;
+}
+
+.site-wrapper {
+	margin-top: 80px;
+}
+
 
 .container-fluid{
     min-height: 900px;
@@ -19,11 +31,7 @@ body {
 }
 
 
-.landing-form {
-    margin: 25% 10%;
-}
-
-.masthead-clearfix {
+.header {
 	position: fixed;
 	top: 0;
 	height: 60px;

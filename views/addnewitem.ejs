@@ -7,38 +7,45 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header class="masthead-clearfix">
-            <form class="logout" action="/logout" method="get">
-                <input type="submit" name="logout" value="Log Out">
-            </form>
-            <form class="change" action="/index" method="get">
-                <input type="submit" name="change" value="Change Household">
-            </form>
-        </header>
-        <div class="api">
-            <fieldset>
-                <form class="api-search" action="/addnewitem/search_api_item" method="post">
-                    <input type="text" name="search" value="Search">
-                    <input type="number" name="num_results" value="10">
-                    <input type="submit" name="submit" value="Submit" id="api_search">
+        <header class="header col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3 class="col-xs-12 col-lg-6">Currently viewing: <span class="label label-default">ejs to generate household name doesnt work here</span></h3>
+            <div class="btn-group col-xs-12 col-lg-6">
+                <form class="logout" action="/logout" method="get">
+                    <input class="btn btn-standard col-xs-6" type="submit" name="logout" value="Log Out">
                 </form>
-            </fieldset>
-        </div>
-        <div class="container-fluid">
-            <h1>Add Custom Item</h1>
-            <div class="item-type col-xs-12">
-                <fieldset class="col-xs-12">
+                <form class="change" action="/households" method="get">
+                    <input class="btn btn-standard col-xs-6" type="submit" name="change" value="Change Household">
+                </form>
+            </div>
+        </header>
+        <div class="site-wrapper col-xs-12 col-lg-6">
+            <h1 class="col-lg-12">Search</h1>
+                <fieldset class="item-type col-xs-12 col-lg-12">
+                    <form class="api-search" action="/addnewitem/search_api_item" method="post">
+                        <input type="text" name="search" value="Search">
+                        <label for="num_results"># of Results</label>
+                        <input type="number" name="num_results" value="10">
+                        <input type="submit" name="submit" value="Submit" id="api_search" class="col-xs-12 col-lg-8 btn btn-primary">
+                    </form>
+                </fieldset>
+<br>
+<br>
+            <h1 class="col-lg-12">Add Custom Item</h1>
+                <fieldset class="item-type col-xs-12 col-lg-12">
                     <form class="item-name" action="/add_item" method="post">
                         <input type="text" name="item_name" value="Item Name">
-                        <input type="number" name="item_qty" value="">
+                        <label for="item_qty">Qty</label>
+                        <input type="number" name="item_qty" value="1">
+                        <input type="submit" name="add-item-to-list" value="Add" class="col-xs-12 col-lg-8 btn btn-primary">
                 </fieldset>
-            </div>
+
         </div>
+
         <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-                <input type="submit" name="add-item-to-list" value="Add">
-            </form>
+
         </footer>
+
 
     </body>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
