@@ -31,23 +31,27 @@
                     <form class="item-name" action="/add_item" method="post">
                         <input type="text" name="item_name" value="Item Name">
                         <input type="number" name="item_qty" value="">
+                        <input type="submit" name="add-item-to-list" value="Add">
                 </fieldset>
+                </form>
             </div>
         </div>
 
         <div class="row">
-          <div class="col-xs-12">
-            <% info.products.forEach(function(item){ %>
-              <img src="<%item.image%>" >
-              <input type="button" name="<%item.title%>" value="<%item.title%>">
-          <%  }) %>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <% if(typeof info != "undefined") { %>
+              <h4>
+                <% info.products.forEach(function(item){ %>
+                  <img src=<%item.image%> alt="Image for food item" >
+                  <input type="button" name=<%item.title%> value=<%item.title%> >
+                <%  })} %>
+              </h4>
+
           </div>
         </div>
 
         <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-                <input type="submit" name="add-item-to-list" value="Add">
-            </form>
         </footer>
 
     </body>

@@ -17,7 +17,7 @@ router.post('/add_item', function(req, res) {
 });
 
 router.post('/select', function(req, res) {
-  
+
 })
 
 router.post('/search_api_item', function(req, res, next){
@@ -31,17 +31,20 @@ var options = {
   }
 };
 
+
 function callback(error, response, body) {
   if (!error && response.statusCode == 200) {
     var info = JSON.parse(body);
     console.log(info);
+
+    res.render('addnewitem', {info: info});
   }
 }
 
 request(options, callback);
 
 
-  res.render('addnewitem');
+
 });
 
 //
