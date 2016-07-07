@@ -28,7 +28,7 @@ function callback(error, response, body) {
     var info = JSON.parse(body);
     console.log(info);
 
-    res.render('addnewrecipe', {recipe: info});
+    res.render('addnewrecipe', {recipe: info, household: req.session.household});
   }
 }
 request(options, callback);
@@ -49,7 +49,7 @@ router.get('/:item_id', function(req, res, next){
       var info = JSON.parse(body);
       console.log(info);
 
-      res.render('addnewrecipe', {ingredients: info});
+      res.render('addnewrecipe', {ingredients: info, household: req.session.household});
     } else {
       console.log(error);
       res.send("We done goofed");
