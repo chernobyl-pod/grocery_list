@@ -16,6 +16,9 @@ router.get('/', function(req, res) {
         }
         knex('food').whereIn('id', idlist)
         .then(function(foods) {
+          for (var i = 0; i < foods.length; i++) {
+            foods[i].name = firstLetter(foods[i].name);
+          }
           res.render('myhouse', {groceries: foods, household: req.session.household});
         })
       })
@@ -24,5 +27,15 @@ router.get('/', function(req, res) {
     res.render('home');
   }
 });
+
+function firstLetter(str) {
+  str = str.split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].split('');
+    str[i][0] = str[i][0].toUpperCase();
+    str[i] = str[i].join('');
+  }
+  return str.join(' ');
+}
 
 module.exports = router;
