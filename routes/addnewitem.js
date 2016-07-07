@@ -9,7 +9,8 @@ router.get('/', function(req, res) {
   res.render('addnewitem');
 });
 
-router.post('/add_item', function(req, res) {
+router.post('/addnew', function(req, res) {
+  console.log(req.body);
   knex.select('id').from('households').where('name', req.session.household)
   .then(function(house) {
     knex('food').where('name', req.body.item_name)
@@ -18,8 +19,10 @@ router.post('/add_item', function(req, res) {
         knex('households-food').where({households_id: house[0].id, food_id: thisfood[0].id})
         .then(function(existing) {
           if (!existing[0]) {
-            knex('households-food').insert({households_id: house[0].id, food_id: thisfood[0].id})
+            knex('households-food').insert([{households_id: house[0].id, food_id: thisfood[0].id}])
             .then(function() {
+              console.log("here");
+
               res.redirect('/');
             });
           }
@@ -30,7 +33,7 @@ router.post('/add_item', function(req, res) {
         var quantity = (req.body.item_qty || 1);
         knex('food').insert({name: thisfood, quantity: quantity})
         .then(function() {
-          knex.select('id').from('food').where('name', req.body.item_name)
+          knex.select('id').from('food').where('name', thisfood)
           .then(function(food) {
             knex('households-food').insert({households_id: house[0].id, food_id: food[0].id})
             .then(function() {
@@ -164,7 +167,15 @@ request(options, callback);
 
 
 
-
+function firstLetter(str) {
+  str = str.split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].split('');
+    str[i][0] = str[i][0].toUpperCase();
+    str[i] = str[i].join('');
+  }
+  return str.join(' ');
+}
 
 
 module.exports = router;

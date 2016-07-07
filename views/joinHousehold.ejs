@@ -8,7 +8,7 @@
                 <% households.forEach(function(house) { %>
                     <li>
                         <%= house.name %>
-                        <form class="addhouse" action="/addhousehold/<%= house.id %>" method="post">
+                        <form class="addhouse" action="/addhousehold/<%= house.name %>" method="post">
                             <input type="submit" name="name" value="Join Household">
                         </form>
                     </li>

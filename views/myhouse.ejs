@@ -9,19 +9,21 @@
         <input type="submit" value="Delete All" class="button-special btn btn-primary">
     </form>
     <div class="recipe-row col-xs-12">
-        <fieldset class="col-xs-12">
-            <ul class="col-xs-12">
-                <% groceries.forEach(function(gro){ %>
-                    <li>
-                        <h3><%= gro.name %></h3>
-                        <form class="delete" action="/delete/<%=gro.name%>" method="post">
-                            <input type="submit" name="delete" value="Delete" class="button-delete btn btn-warning">
-                        </form>
-                    </li>
-                <% }); %>
-            </ul>
-        </fieldset>
+      <fieldset class="col-xs-12">
+          <ul class="col-xs-12" id="socketMessages">
+              <% groceries.forEach(function(gro){ %>
+                  <li>
+                      <h3><%= gro.name %></h3>
+                      <form class="delete" action="/delete/<%=gro.name%>" method="post">
+                          <input type="submit" name="delete" value="Delete" class="button-delete btn btn-warning">
+                      </form>
+                  </li>
+              <% }); %>
+          </ul>
+      </fieldset>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.js"></script>
+<script src="/socket.js"></script>
 <%- include("_about.ejs"); %>
 <%- include("_footer.ejs"); %>
