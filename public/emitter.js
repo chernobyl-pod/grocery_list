@@ -8,7 +8,7 @@ var itemName = document.getElementById('item_name');
 var itemQTY = document.getElementById('item_qty');
 
 sockbutt.addEventListener('click', function(e) {
-    e.preventDefault();
+    // e.preventDefault();
     // e.stopPropagation();
     var item = {
       name: itemName.value,
@@ -22,11 +22,11 @@ sockbutt.addEventListener('click', function(e) {
     });
     ///var path = window.location.pathname;
     console.log("We are inside");
-    ajax('POST', "/addnewitem/addnew", item, function(data) {
-        console.log("request sent: ", data);
-        // window.location.assign(path.substring(0, path.indexOf('/messages')));
-    });
-    return false;
+    // ajax('POST', "/addnewitem/addnew", item, function(data) {
+    //     console.log("request sent: ", data);
+    //     // window.location.assign(path.substring(0, path.indexOf('/messages')));
+    // });
+    // return false;
 });
 
 
