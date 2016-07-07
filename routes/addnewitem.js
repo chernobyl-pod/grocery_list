@@ -29,9 +29,9 @@ router.post('/addnew', function(req, res) {
         });
       }
       else {
-        var thisfood = firstLetter(req.body.item_name);
+        //var thisfood = firstLetter(req.body.item_name);
         var quantity = (req.body.item_qty || 1);
-        knex('food').insert({name: thisfood, quantity: quantity})
+        knex('food').insert({name: req.body.item_name, quantity: quantity})
         .then(function() {
           knex.select('id').from('food').where('name', thisfood)
           .then(function(food) {
@@ -81,6 +81,18 @@ router.post('/select', function(req, res) {
   });
 });
 
+router.post('/search_api_item', function(req, res){
+  //console.log(req.body);
+//  https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?number=10&offset=0&query=pasta
+var options = {
+  url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?number=" + req.body.num_results + "&offset=0&query=" + req.body.search,
+  headers: {
+    'X-Mashape-Key': 'WZlhmsK0m4mshHdDeHvnP8841dmdp1P8HzBjsnlXv0k9tJoybe',
+    'Accept': "application/json"
+  }
+};
+
+
 router.post('/:recipe', function(req, res) {
   knex('recipes').where('name', req.params.recipe)
   .then(function(recipe) {
@@ -119,17 +131,6 @@ router.post('/:recipe', function(req, res) {
     });
   });
 });
-
-router.post('/search_api_item', function(req, res){
-  //console.log(req.body);
-//  https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?number=10&offset=0&query=pasta
-var options = {
-  url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?number=" + req.body.num_results + "&offset=0&query=" + req.body.search,
-  headers: {
-    'X-Mashape-Key': 'WZlhmsK0m4mshHdDeHvnP8841dmdp1P8HzBjsnlXv0k9tJoybe',
-    'Accept': "application/json"
-  }
-};
 
 
 function callback(error, response, body) {
