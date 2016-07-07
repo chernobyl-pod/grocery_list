@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/new', function(req, res) {
-  res.render('addnewrecipe');
+  res.render('addnewrecipe', {household: req.session.household});
 });
 
 router.post('/new', function(req, res) {
