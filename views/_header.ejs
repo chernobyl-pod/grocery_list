@@ -5,10 +5,13 @@
 	<h4 class="col-xs-6 col-sm-6 col-md-6 hidden-lg hidden-xl">
 		<%=household%>
 	</h4>
-	<form class="recipes col-xs-3 col-lg-3" action="/" method="get">
-		<input type="submit" name="recipes" value="List" class="list button-special btn btn-primary col-xs-12 col-lg-12">
-	</form>
-	<form class="recipes col-xs-3 col-lg-3" action="/recipes" method="get">
-		<input type="submit" name="recipes" value="Recipes" class="recipes button-special btn btn-primary col-xs-12 col-lg-12">
-	</form>
+	<div class="header-buttons col-xs-6 btn-group btn-group-lg pull-right" role="group" aria-label="Basic example">
+		<form class="recipes col-xs-3 col-lg-3" action="/" method="get">
+			<input type="submit" name="recipes" value="List" class="btn btn-primary">
+		</form>
+		<form class="recipes col-xs-3 col-lg-3" action="/recipes" method="get">
+			<input type="submit" name="recipes" value="Recipes" class="btn btn-primary">
+		</form>
+	</div>
+
 </header>
