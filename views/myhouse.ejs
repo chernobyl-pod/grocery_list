@@ -1,5 +1,5 @@
 <%- include("_head.ejs", {pgtitle: "My Household"}); %>
-<%- include("_header.ejs",{household:"Household"}); %>
+<%- include("_header.ejs",{household: household}); %>
 <div class="site-wrapper-inner">
     <%- include("_navbar.ejs"); %>
     <form class="add col-xs-6 col-lg-6" action="/addnewitem" method="get">
@@ -23,6 +23,5 @@
         </fieldset>
     </div>
 </div>
-
 <%- include("_about.ejs"); %>
 <%- include("_footer.ejs"); %>
