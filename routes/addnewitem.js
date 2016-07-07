@@ -9,7 +9,8 @@ router.get('/', function(req, res) {
   res.render('addnewitem');
 });
 
-router.post('/add_item', function(req, res) {
+router.post('/addnew', function(req, res) {
+  console.log(req.body);
   knex.select('id').from('households').where('name', req.session.household)
   .then(function(house) {
     knex('food').where('name', req.body.item_name)
@@ -18,8 +19,10 @@ router.post('/add_item', function(req, res) {
         knex('households-food').where({households_id: house[0].id, food_id: thisfood[0].id})
         .then(function(existing) {
           if (!existing[0]) {
-            knex('households-food').insert({households_id: house[0].id, food_id: thisfood[0].id})
+            knex('households-food').insert([{households_id: house[0].id, food_id: thisfood[0].id}])
             .then(function() {
+              console.log("here");
+
               res.redirect('/');
             });
           }
@@ -164,7 +167,15 @@ request(options, callback);
 
 
 
-
+// router.post('/addnew', function(req, res, next){
+//   res.json({
+//     status: "successful",
+//     data: req.body
+//   });
+//
+//
+//
+// });
 
 
 module.exports = router;
