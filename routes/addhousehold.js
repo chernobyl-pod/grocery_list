@@ -14,6 +14,7 @@ router.get('/', function(req, res) {
 
 router.post('/:id', function(req, res) {
   knex.select('id').from('members').where('email', req.session.email).then(function(data) {
+    req.session.household = 
     knex('households-members').insert([{households_id: req.params.id, members_id: data[0].id}]).then(function(data) {
       res.redirect('/');
     })

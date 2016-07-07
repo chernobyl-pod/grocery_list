@@ -26,7 +26,9 @@ router.post('/add_item', function(req, res) {
         });
       }
       else {
-        knex('food').insert({name: req.body.item_name, quantity: req.body.item_qty})
+        var thisfood = firstLetter(req.body.item_name);
+        var quantity = (req.body.item_qty || 1);
+        knex('food').insert({name: thisfood, quantity: quantity})
         .then(function() {
           knex.select('id').from('food').where('name', req.body.item_name)
           .then(function(food) {
