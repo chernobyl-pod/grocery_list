@@ -8,19 +8,20 @@
             <% recipes.forEach(function(recipe) { %>
                 <h4><%=recipe.name%></h4>
                 <form class="addingredients" action="/addnewitem/<%=recipe.name%>" method="post">
-                    <input type="submit" name="addingredients" value="Add All Ingredients">
+                    <input type="submit" name="addingredients" value="Add All Ingredients" class="btn btn-primary">
                 </form>
                 <form class="editerecipe" action="/editrecipe/<%=recipe.name%>" method="get">
-                    <input type="submit" name="editrecipe" value="Edit Recipe">
+                    <input type="submit" name="editrecipe" value="Edit Recipe" class="btn btn-success">
                 </form>
                 <form class="deleterecipe" action="/recipes/delete/<%=recipe.name%>" method="post">
-                    <input type="submit" name="editrecipe" value="Delete Recipe">
+                    <input type="submit" name="editrecipe" value="Delete Recipe" class="btn btn-warning">
                 </form>
             <% }); %>
+            <form class="addnewrecipe" action="/recipes/new" method="get">
+                <input type="submit" name="newrecipe" value="Add New Recipe" class="button-special btn btn-primary">
+            </form>
         </fieldset>
-        <form class="addnewrecipe" action="/recipes/new" method="get">
-            <input type="submit" name="newrecipe" value="Add New Recipe" class="btn btn-primary">
-        </form>
+
     </div>
 </div>
 <%- include("_about.ejs"); %>
