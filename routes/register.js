@@ -25,4 +25,26 @@ router.post('/', function(req, res, next) {
 
 });
 
+// 
+// var checkit = new Checkit({
+//   firstName: 'required',
+//   lastName: 'required',
+//   email: ['required', 'email']
+// });
+//
+// var body = {
+//   email: 'test@example.com',
+//   firstName: 'Tim',
+//   lastName: 'Griesser',
+//   githubUsername: 'tgriesser'
+// };
+//
+// checkit.run(body).then(function(validated) {
+//   console.log(validated);
+// }).catch(Checkit.Error, function(err) {
+//   console.log(err.toJSON());
+// })
+
+
+
 module.exports = router;
