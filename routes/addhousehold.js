@@ -7,16 +7,28 @@ var router = express.Router();
 
 
 router.get('/', function(req, res) {
-  knex.select().from('households').then(function(data) {
+  knex('households').then(function(data) {
     res.render('joinHousehold', {households: data});
   });
 });
 
-router.post('/:id', function(req, res) {
-  knex.select('id').from('members').where('email', req.session.email).then(function(data) {
-    req.session.household = 
-    knex('households-members').insert([{households_id: req.params.id, members_id: data[0].id}]).then(function(data) {
-      res.redirect('/');
+router.post('/:name', function(req, res) {
+  knex('members').where('email', req.session.email)
+  .then(function(member) {
+    knex('households').where('name', req.params.name)
+    .then(function(house) {
+      knex('households-members').where('households_id', house[0].id).where('members_id', member[0].id)
+      .then(function(existing) {
+        if (!existing[0]) {
+          knex('households-members').insert([{households_id: house[0].id, members_id: member[0].id}])
+          .then(function() {
+            res.redirect('/');
+          })
+        }
+        else {
+          res.redirect('/');
+        }
+      })
     })
   });
 });
