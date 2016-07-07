@@ -1,7 +1,22 @@
 <%- include("_head.ejs",{pgtitle:"Add New Item"}); %>
-<%- include("_header.ejs",{household: household}); %>
-<div class="site-wrapper-inner">
-    <%- include("_navbar.ejs"); %>
+<%- include("_header.ejs",{household:household}); %>
+            <div class="site-wrapper-inner">
+                <%- include("_navbar.ejs"); %>
+
+            <div class="col-xs-12 col-lg-6">
+                <h1 class="col-lg-12">Search</h1>
+                <fieldset class="item-type col-xs-12 col-lg-12">
+                    <form class="api-search" action="/addnewitem/search_api_item" method="post">
+                        <input type="text" name="search" placeholder="Search">
+                        <label for="num_results">#</label>
+                        <input type="number" name="num_results" placeholder="10">
+                        <input type="submit" name="submit" value="Submit" id="api_search" class="col-xs-12 col-lg-8 btn btn-primary">
+                    </form>
+                </fieldset>
+                <br>
+                <br>
+                <h1 class="col-lg-12">Add Custom Item</h1>
+                <form action="/addnewitem/addnew" method="post">
 
     <div class="col-xs-12 col-lg-6">
         <h1 class="col-lg-12">Search</h1>

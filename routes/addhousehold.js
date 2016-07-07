@@ -8,7 +8,7 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
   knex('households').then(function(data) {
-    res.render('joinHousehold', {households: data});
+    res.render('joinHousehold', {households: data, household: household});
   });
 });
 

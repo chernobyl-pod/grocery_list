@@ -12,7 +12,7 @@ router.post('/', function(req, res) {
       knex('recipes').insert([{name: req.body.recipe_name, category: req.body.recipe_style, allergies: req.body.recipe_allergies, preferred_diet: req.body.recipe_preferred_diet, course: req.body.recipe_course}])
       .then(function() {
         req.session.recipe = req.body.recipe_name;
-        res.render('createrecipe', {recipe: req.body.recipe_name, ingredients: []});
+        res.render('createrecipe', {recipe: req.body.recipe_name, ingredients: [], household: req.session.household});
       });
     }
     else {
@@ -36,7 +36,7 @@ router.get('/', function(req, res) {
         for (var i = 0; i < foods.length; i++) {
           foodlist.push(foods[i].name);
         }
-        res.render('createrecipe', {recipe: req.session.recipe, ingredients: foodlist});
+        res.render('createrecipe', {household: req.session.household, recipe: req.session.recipe, ingredients: foodlist});
       });
     });
   });

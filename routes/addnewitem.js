@@ -6,7 +6,7 @@ var router = express.Router();
 var request = require('request');
 
 router.get('/', function(req, res) {
-  res.render('addnewitem');
+  res.render('addnewitem', {household: req.session.household});
 });
 
 router.post('/addnew', function(req, res) {
