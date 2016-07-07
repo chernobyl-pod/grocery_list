@@ -40,7 +40,7 @@ app.use(cookieSession({
 app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 app.use('/', home);
@@ -64,7 +64,6 @@ var port = process.env.PORT || 3000;
 //   console.log("Listening on: " + port + ".");
 // });
 
-
 http.listen(port, function(){
   console.log("socket listen on " + port + "...");
 });
@@ -73,8 +72,10 @@ io.on('connection', function (socket) {
   // console.log("socket connected" + socket.id);
   // socket.emit('news', { hello: 'world' });
   //console.log(socket);
-  socket.on('here', function (data) {
-    //console.log(data);
+  console.log('socked');
+  socket.on('new item', function (item) {
+    console.log(item);
+    io.emit('new item', item);
   });
 
 });

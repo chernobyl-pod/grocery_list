@@ -9,7 +9,8 @@ router.get('/', function(req, res) {
   res.render('addnewitem', {household: req.session.household});
 });
 
-router.post('/add_item', function(req, res) {
+router.post('/addnew', function(req, res) {
+  console.log(req.body);
   knex.select('id').from('households').where('name', req.session.household)
   .then(function(house) {
     knex('food').where('name', req.body.item_name)
@@ -18,8 +19,10 @@ router.post('/add_item', function(req, res) {
         knex('households-food').where({households_id: house[0].id, food_id: thisfood[0].id})
         .then(function(existing) {
           if (!existing[0]) {
-            knex('households-food').insert({households_id: house[0].id, food_id: thisfood[0].id})
+            knex('households-food').insert([{households_id: house[0].id, food_id: thisfood[0].id}])
             .then(function() {
+              console.log("here");
+
               res.redirect('/');
             });
           }
@@ -160,7 +163,6 @@ request(options, callback);
 // api_search.addEventListener('click', ajax('GET', "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?number=" + req.body.num_results + "&offset=0&query=" + req.body.search, function(err, data){
 //   console.log(data);
 // }));
-
 
 
 
