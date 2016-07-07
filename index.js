@@ -27,6 +27,7 @@ var addnewitem = require('./routes/addnewitem');
 var recipequery = require('./routes/recipe-query');
 var remove = require('./routes/remove');
 var addnewrecipe = require('./routes/addnewrecipe');
+var editrecipe = require('./routes/editrecipe');
 
 
 var router = express.Router();
@@ -55,6 +56,7 @@ app.use('/addnewitem', addnewitem);
 app.use('/recipe-query', recipequery);
 app.use('/delete', remove);
 app.use('/addnewrecipe', addnewrecipe);
+app.use('/editrecipe', editrecipe);
 
 var port = process.env.PORT || 3000;
 //
