@@ -12,20 +12,11 @@ body {
     clear: both;
 }
 
-.contact {
-    line-height: 60;
-    margin-top: 15px;
-}
-
 .container-fluid{
     min-height: 900px;
     margin-top: 80px;
 	margin-bottom: 60px;
     overflow: hidden;
-}
-
-.header-buttons{
-    margin: 1% 0;
 }
 
 .button-special {
@@ -50,7 +41,6 @@ body {
 	font-size: 16px;
 }
 
-
 figcaption{
 	font-size: 8px;
 }
@@ -58,12 +48,6 @@ figcaption{
 a {
 	text-decoration: none;
 	color: black;
-	border-radius: 4px;
-	padding: 0 4px;
-}
-
-p{
-	font-size: 18px;
 }
 
 li {
