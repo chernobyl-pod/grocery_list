@@ -8,13 +8,14 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
   knex('households').then(function(data) {
-    res.render('joinHousehold', {households: data, household: household});
+    res.render('joinHousehold', {households: data, household: "No Household"});
   });
 });
 
 router.post('/:name', function(req, res) {
   knex('members').where('email', req.session.email)
   .then(function(member) {
+    console.log(req.params.name);
     knex('households').where('name', req.params.name)
     .then(function(house) {
       knex('households-members').where('households_id', house[0].id).where('members_id', member[0].id)
@@ -22,6 +23,7 @@ router.post('/:name', function(req, res) {
         if (!existing[0]) {
           knex('households-members').insert([{households_id: house[0].id, members_id: member[0].id}])
           .then(function() {
+            req.session.household = req.params.name;
             res.redirect('/');
           })
         }
