@@ -30,8 +30,8 @@ body {
 	position: fixed;
 	top: 0;
     left: 0;
-	height: 60px;
-	/*line-height: 60px;*/
+	height: 70px;
+	line-height: 60px;
 	background-color: #212121;
 	color: #E0F2F1;
 	z-index: 10;
