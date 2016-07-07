@@ -4,12 +4,31 @@ var express = require('express');
 var knex = require('../db/knex.js');
 var bcrypt = require('bcrypt');
 var router = express.Router();
+var checkit = require('checkit');
+
 
 router.get('/', function(req, res) {
   res.render('register');
 });
 
 router.post('/', function(req, res, next) {
+  var checkit = new Checkit({
+    email: ['required', 'email'],
+    password: 'required'
+  });
+
+  var body = {
+    email: req.body.email,
+    password: req.body.password
+  };
+
+  checkit.run(body).then(function(validated) {
+    console.log(validated);
+  }).catch(Checkit.Error, function(err) {
+    console.log(err.toJSON());
+  });
+
+
   req.session = {
     email: req.body.email,
     name: req.body.username
@@ -25,25 +44,6 @@ router.post('/', function(req, res, next) {
 
 });
 
-// 
-// var checkit = new Checkit({
-//   firstName: 'required',
-//   lastName: 'required',
-//   email: ['required', 'email']
-// });
-//
-// var body = {
-//   email: 'test@example.com',
-//   firstName: 'Tim',
-//   lastName: 'Griesser',
-//   githubUsername: 'tgriesser'
-// };
-//
-// checkit.run(body).then(function(validated) {
-//   console.log(validated);
-// }).catch(Checkit.Error, function(err) {
-//   console.log(err.toJSON());
-// })
 
 
 
