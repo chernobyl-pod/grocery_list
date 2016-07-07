@@ -10,9 +10,10 @@ router.get('/', function(req, res) {
 });
 
 router.post('/addnew', function(req, res) {
+  var toAdd = firstLetter(req.body.item_name);
   knex.select('id').from('households').where('name', req.session.household)
   .then(function(house) {
-    knex('food').where('name', req.body.item_name)
+    knex('food').where('name', toAdd)
     .then(function(thisfood) {
       console.log(thisfood);
       if (thisfood[0]) {
@@ -34,9 +35,9 @@ router.post('/addnew', function(req, res) {
       else {
         //var thisfood = firstLetter(req.body.item_name);
         var quantity = (req.body.item_qty || 1);
-        knex('food').insert({name: req.body.item_name, quantity: quantity})
+        knex('food').insert({name: toAdd, quantity: quantity})
         .then(function() {
-          knex.select('id').from('food').where('name', req.body.item_name)
+          knex.select('id').from('food').where('name', toAdd)
           .then(function(food) {
             knex('households-food').insert({households_id: house[0].id, food_id: food[0].id})
             .then(function() {
