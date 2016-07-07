@@ -20,6 +20,7 @@
   "dependencies": {
     "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
+    "checkit": "^0.7.0",
     "compass": "^0.1.1",
     "cookie-parser": "^1.4.3",
     "cookie-session": "^2.0.0-alpha.1",
