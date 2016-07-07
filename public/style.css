@@ -6,6 +6,12 @@ body {
     background-size: cover;
 }
 
+.add-custom-item {
+    margin: 10px 0;
+    height: 40px;
+    clear: both;
+}
+
 .contact {
     line-height: 60;
     margin-top: 15px;
@@ -19,7 +25,8 @@ body {
 }
 
 .button-special {
-    margin-top: 5%;
+    margin: 3% 5%;
+    padding: 5% 5%;
 }
 
 .button-delete {
