@@ -44,7 +44,7 @@
                 <br>
                 <div class="recipe-row col-xs-8">
                     <fieldset class="col-xs-12">
-                        <ul class="col-xs-12">
+                        <ul class="col-xs-12" id="socketMessages">
                             <% groceries.forEach(function(gro){ %>
                                 <li>
                                     <h3><%= gro.name %></h3>
@@ -56,7 +56,7 @@
                 <div class="recipe-button-row col-xs-4">
                     <fieldset class="clear-buttons">
                         <% groceries.forEach(function(gro){ %>
-                            <ul class="col-xs-12" id="socketMessages">
+                            <ul class="col-xs-12">
                                 <li>
                                     <form class="delete" action="/delete/<%=gro.name%>" method="post">
                                         <input type="submit" name="delete" value="Delete">

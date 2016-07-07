@@ -11,26 +11,28 @@ router.get('/', function(req, res) {
   res.render('addnewitem');
 });
 
-router.post('/add_item', function(req, res) {
+router.post('/addnew', function(req, res) {
   knex.select('id').from('households').where('name', req.session.household)
   .then(function(house) {
-    knex('food').where('name', req.body.item_name)
+    knex('food').where('name', req.body.name)
     .then(function(thisfood) {
       if (thisfood[0]) {
         knex('households-food').where({households_id: house[0].id, food_id: thisfood[0].id})
         .then(function(existing) {
           if (!existing[0]) {
-            knex('households-food').insert({households_id: house[0].id, food_id: thisfood[0].id})
+            knex('households-food').insert([{households_id: house[0].id, food_id: thisfood[0].id}])
             .then(function() {
+              console.log("here");
+
               res.redirect('/');
             });
           }
         });
       }
       else {
-        knex('food').insert({name: req.body.item_name, quantity: req.body.item_qty})
+        knex('food').insert({name: req.body.name, quantity: req.body.qty})
         .then(function() {
-          knex.select('id').from('food').where('name', req.body.item_name)
+          knex.select('id').from('food').where('name', req.body.name)
           .then(function(food) {
             knex('households-food').insert({households_id: house[0].id, food_id: food[0].id})
             .then(function() {
@@ -125,12 +127,15 @@ request(options, callback);
 
 
 
-router.post('/addnew', function(req, res, next){
-  res.json({
-    status: "successful",
-    data: req.body
-  });
-});
+// router.post('/addnew', function(req, res, next){
+//   res.json({
+//     status: "successful",
+//     data: req.body
+//   });
+//
+//
+//
+// });
 
 
 module.exports = router;

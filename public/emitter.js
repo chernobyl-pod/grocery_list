@@ -30,6 +30,7 @@ sockbutt.addEventListener('click', function(e) {
 });
 
 
+
 function ajax(method, route, data, callback) {
     var req = new XMLHttpRequest();
     req.onload = function() {
