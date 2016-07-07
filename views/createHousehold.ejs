@@ -1,7 +1,9 @@
 <%- include("_head.ejs", {pgtitle: "Create Household"}); %>
-      <form class="" action="/newhousehold" method="post">
-        <label for="name">Household Name</label>
-        <input type="text" name="name" value="Grizzled Cheese">
-        <input type="submit" value="Submit">
-      </form>
-<%- include("_footer.ejs"); %>
+<%- include("_headergeneric.ejs"); %>
+<form class="" action="/newhousehold" method="post">
+    <label for="name">Household Name</label>
+    <input type="text" name="name" value="Grizzled Cheese">
+    <input type="submit" value="Submit">
+</form>
+<%- include("_about.ejs"); %>
+<%- include("_footer.ejs") %>

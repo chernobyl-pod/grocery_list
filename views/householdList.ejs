@@ -1,20 +1,7 @@
 <%- include("_head.ejs", {pgtitle:"My Households"}); %>
+<%- include("_header.ejs"); %>
         <div class="site-wrapper-inner">
-			<header class="header col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-				<form class="logout col-3 btn btn-default" action="/logout" method="get">
-					<input type="submit" name="logout" value="Log Out">
-				</form>
-				<form class="change col-3 btn btn-default" action="/households" method="get">
-					<input type="submit" name="change" value="Change" >
-				</form>
-				<form class="addhousehold col-3 btn btn-default" action="/addhousehold" method="get">
-					<input type="submit" name="addhousehold" value="Add">
-				</form>
-				<form class="newhousehold col-3 btn btn-default" action="/newhousehold" method="get">
-					<input type="submit" name="newhousehold" value="Create">
-				</form>
-                <a href="/newhousehold" class="btn btn-default">Link</a>
-			</header>
+			<%- include("_navbar.ejs"); %>
 				<div class="recipe-row col-xs-8">
 					<fieldset class="col-xs-12">
 							<% groceries.forEach(function(gro){ %>
@@ -33,13 +20,6 @@
 				<form class="add col-6 btn btn-default" action="/add" method="post">
 					<input type="submit" name="add-item" value="Add">
 				</form>
-
-			<footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="inner">
-					<p class="footer-p">
-						This webpage created by <a href="https://github.com/chernobyl-pod">Chernobyl Pod, July 2016</a>
-					</p>
-				</div>
-			</footer>
         </div>
+<%- include("_about.ejs"); %>
 <%- include("_footer.ejs") %>

@@ -1,13 +1,7 @@
-
 <%- include("_head.ejs",{pgtitle:"Create Recipe"}); %>
+<%- include("_header.ejs"); %>
             <div class="site-wrapper-inner">
-                <header class="masthead-clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h3 class="hidden-xs col-lg-6">Current List:
-                        <span class="label label-default">household</span>
-                    </h3>
-                    <h4 class="col-xs-6 hidden-lg">
-                        household
-                    </h4>
+                <%- include("_navbar.ejs"); %>
                     <form class="recipes col-xs-6 col-lg-6" action="/" method="get">
                         <input type="submit" name="recipes" value="Back to List" class="recipes btn btn-primary col-xs-12 col-lg-12">
                     </form>
@@ -25,13 +19,6 @@
                     <form class="addnewrecipe" action="/addnewrecipe/submit" method="post">
                       <input type="submit" name="recipe" value="Submit">
                     </form>
-                    <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="inner">
-                            <p class="footer-p">
-                                This webpage created by
-                                <a href="https://github.com/chernobyl-pod">Chernobyl Pod, July 2016</a>
-                            </p>
-                        </div>
-                    </footer>
                 </div>
-<%- include("_footer.ejs"); %>
+<%- include("_about.ejs"); %>
+<%- include("_footer.ejs") %>
