@@ -1,11 +1,9 @@
 'use strict';
 
 var express = require('express');
-var cookieSession = require('cookie-session');
 var knex = require('../db/knex');
 var router = express.Router();
 var request = require('request');
-var url = require('url');
 
 router.get('/', function(req, res) {
   res.render('addnewitem');
@@ -80,7 +78,46 @@ router.post('/select', function(req, res) {
   });
 });
 
-router.post('/search_api_item', function(req, res, next){
+router.post('/:recipe', function(req, res) {
+  knex('recipes').where('name', req.params.recipe)
+  .then(function(recipe) {
+    knex('recipes-food').where('recipes_id', recipe[0].id)
+    .then(function(ingredients) {
+      var foodids = [];
+      for (var i = 0; i < ingredients.length; i++) {
+        foodids.push(ingredients[i].food_id);
+      }
+      knex('food').whereIn('id', foodids)
+      .then(function(foodlist) {
+        console.log(foodlist);
+        knex('households').where('name', req.session.household)
+        .then(function(house) {
+          knex('households-food').where('households_id', house[0].id).whereIn('food_id', foodids)
+          .then(function(existing) {
+            console.log(existing);
+            for (i = 0; i < foodlist.length; i++) {
+              for (var j = 0; j < existing.length; j++) {
+                if (existing[j].name === foodlist[i].name) {
+                  foodlist.slice(foodlist.indexOf(i), 1);
+                }
+              }
+            }
+            var toAdd = [];
+            for (i = 0; i < foodlist.length; i++) {
+              toAdd.push({households_id: house[0].id, food_id: foodlist[i].id});
+            }
+            knex('households-food').insert(toAdd)
+            .then(function() {
+              res.redirect('/');
+            });
+          });
+        });
+      });
+    });
+  });
+});
+
+router.post('/search_api_item', function(req, res){
   //console.log(req.body);
 //  https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?number=10&offset=0&query=pasta
 var options = {
@@ -93,7 +130,7 @@ var options = {
 
 
 function callback(error, response, body) {
-  if (!error && response.statusCode == 200) {
+  if (!error && response.statusCode === 200) {
     var info = JSON.parse(body);
     console.log(info);
 

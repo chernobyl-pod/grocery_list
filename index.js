@@ -27,6 +27,7 @@ var addnewitem = require('./routes/addnewitem');
 var recipequery = require('./routes/recipe-query');
 var remove = require('./routes/remove');
 var addnewrecipe = require('./routes/addnewrecipe');
+var editrecipe = require('./routes/editrecipe');
 
 
 var router = express.Router();
@@ -55,12 +56,17 @@ app.use('/addnewitem', addnewitem);
 app.use('/recipe-query', recipequery);
 app.use('/delete', remove);
 app.use('/addnewrecipe', addnewrecipe);
+app.use('/editrecipe', editrecipe);
 
-// var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3000;
 //
 // app.listen(port, function() {
 //   console.log("Listening on: " + port + ".");
 // });
+
+http.listen(port, function(){
+  console.log("socket listen on " + port + "...");
+});
 
 io.on('connection', function (socket) {
   // console.log("socket connected" + socket.id);
@@ -72,8 +78,4 @@ io.on('connection', function (socket) {
     io.emit('new item', item);
   });
 
-});
-
-http.listen(3005, function(){
-  console.log("socket listen on 3005");
 });

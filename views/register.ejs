@@ -1,26 +1,7 @@
-<!DOCTYPE html>
-<html>
-
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
-        <title>Register</title>
-    </head>
-    <body>
-        <div class="container-fluid">
-            <header class="masthead-clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                <h3 id="headline" class="hidden-xs col-sm-3 col-md-6 col-lg-6 text-center">
-                    Some Title Here
-                </h3>
-                <p id="extraSmallHeadline" class="col-xs-6 hidden-sm hidden-md hidden-lg text-left">
-                    Some Title Here
-                </p>
-            </header>
+<%- include("_head.ejs", {pgtitle: "Register"}); %>
+<%- include("_headergeneric.ejs"); %>
         <div class="site-wrapper-inner">
-            <form class="container-fluid" action="/register" method="post">
+            <form class="" action="/register" method="post">
                 <div class="form-group">
                     <label for="email">E-Mail Address</label>
                     <input class="col-xs-12" type="text" name="email" value="name@example.com">
@@ -42,9 +23,4 @@
                 </footer>
             </form>
         </div>
-    </div>
-
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    </body>
-</html>
+<%- include("_footer.ejs"); %>

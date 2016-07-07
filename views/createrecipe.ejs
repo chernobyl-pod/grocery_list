@@ -1,20 +1,37 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Create a New Recipe</title>
-  </head>
-  <body>
-    <h1><%=recipe%></h1>
-    <% ingredients.forEach(function(ingredient) { %>
-      <h3><%=ingredient%></h3>
-    <% }) %>
-    <form class="addingredient" action="/addnewrecipe/addingredient/" method="post">
-      <input type="text" name="ingredient" placeholder="Ingredient">
-      <input type="submit" name="add" value="Add Ingredient">
-    </form>
-    <form class="addnewrecipe" action="/addnewrecipe/submit" method="post">
-      <input type="submit" name="recipe" value="Create Recipe">
-    </form>
-  </body>
-</html>
+
+<%- include("_head.ejs",{pgtitle:"Create Recipe"}); %>
+            <div class="site-wrapper-inner">
+                <header class="masthead-clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h3 class="hidden-xs col-lg-6">Current List:
+                        <span class="label label-default">household</span>
+                    </h3>
+                    <h4 class="col-xs-6 hidden-lg">
+                        household
+                    </h4>
+                    <form class="recipes col-xs-6 col-lg-6" action="/" method="get">
+                        <input type="submit" name="recipes" value="Back to List" class="recipes btn btn-primary col-xs-12 col-lg-12">
+                    </form>
+                    <h1><%=recipe%></h1>
+                    <% ingredients.forEach(function(ingredient) { %>
+                      <h3><%=ingredient%></h3>
+                      <form class="deleteingredient" action="/addnewrecipe/deleteingredient/<%=ingredient%>" method="post">
+                        <input type="submit" name="delete" value="Delete">
+                      </form>
+                    <% }) %>
+                    <form class="addingredient" action="/addnewrecipe/addingredient/" method="post">
+                      <input type="text" name="ingredient" placeholder="Ingredient">
+                      <input type="submit" name="add" value="Add Ingredient">
+                    </form>
+                    <form class="addnewrecipe" action="/addnewrecipe/submit" method="post">
+                      <input type="submit" name="recipe" value="Submit">
+                    </form>
+                    <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="inner">
+                            <p class="footer-p">
+                                This webpage created by
+                                <a href="https://github.com/chernobyl-pod">Chernobyl Pod, July 2016</a>
+                            </p>
+                        </div>
+                    </footer>
+                </div>
+<%- include("_footer.ejs"); %>

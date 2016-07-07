@@ -22,6 +22,14 @@ body {
     overflow: hidden;
 }
 
+.button-special {
+    margin-top: 5%;
+}
+
+.button-delete {
+    margin-top: 4%;
+}
+
 .masthead-clearfix {
 	position: fixed;
 	top: 0;
