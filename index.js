@@ -8,7 +8,9 @@ var cookieSession = require('cookie-session');
 var knex = require('knex');
 var url = require('url');
 require('dotenv').config();
-var http = require('http').Server(express);
+var app=express();
+var http = require('http').Server(app);
+
 var io = require('socket.io')(http);
 
 
@@ -27,7 +29,6 @@ var remove = require('./routes/remove');
 var addnewrecipe = require('./routes/addnewrecipe');
 
 
-var app=express();
 var router = express.Router();
 
 app.use(cookieSession({
@@ -55,11 +56,11 @@ app.use('/recipe-query', recipequery);
 app.use('/delete', remove);
 app.use('/addnewrecipe', addnewrecipe);
 
-var port = process.env.PORT || 3000;
-
-app.listen(port, function() {
-  console.log("Listening on: " + port + ".");
-});
+// var port = process.env.PORT || 3000;
+//
+// app.listen(port, function() {
+//   console.log("Listening on: " + port + ".");
+// });
 
 
 http.listen(3005, function(){
