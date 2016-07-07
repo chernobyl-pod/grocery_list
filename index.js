@@ -10,6 +10,7 @@ var url = require('url');
 require('dotenv').config();
 var app=express();
 var http = require('http').Server(app);
+var bcrypt = require('bcrypt');
 
 var io = require('socket.io')(http);
 
@@ -79,3 +80,17 @@ io.on('connection', function (socket) {
   });
 
 });
+
+function hashPassword(pass) {
+  bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(pass, salt, function(err, hash) {
+      console.log(hash);
+    });
+  });
+}
+
+console.log(hashPassword('1234'));
+console.log(hashPassword('1234'));
+console.log(hashPassword('1234'));
+console.log(hashPassword('1234'));
+console.log(hashPassword('1234'));
