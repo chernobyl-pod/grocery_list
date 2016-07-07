@@ -1,32 +1,7 @@
 <%- include("_head.ejs",{pgtitle:"Add New Item"}); %>
-            <header class="masthead-clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h3 class="hidden-xs col-lg-6">Current List:
-                    <span class="label label-default">household</span>
-                </h3>
-                <h4 class="col-xs-6 hidden-lg">
-                    household
-                </h4>
-                <form class="recipes col-xs-6 col-lg-6" action="/recipes" method="get">
-                    <input type="submit" name="recipes" value="Recipes" class="recipes btn btn-primary col-xs-12 col-lg-12">
-                </form>
-            </header>
+<%- include("_header.ejs",{household:"Household"}); %>
             <div class="site-wrapper-inner">
-                <header class="sub-header">
-                    <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <form class="logout" action="/logout" method="get">
-                            <input class="btn btn-success col-xs-3" type="submit" name="logout" value="Log Out">
-                        </form>
-                        <form class="change" action="/households" method="get">
-                            <input class="btn btn-success col-xs-3" type="submit" name="change" value="Change">
-                        </form>
-                        <form class="addhousehold" action="/addhousehold" method="get">
-                            <input class="btn btn-success col-xs-3" type="submit" name="joinhousehold" value="Join">
-                        </form>
-                        <form class="newhousehold" action="/newhousehold" method="get">
-                            <input class="btn btn-success col-xs-3" type="submit" name="newhousehold" value="Create">
-                        </form>
-                    </div>
-                </header>
+                <%- include("_navbar.ejs"); %>
 
             <div class="col-xs-12 col-lg-6">
                 <h1 class="col-lg-12">Search</h1>
@@ -62,14 +37,6 @@
                         <%  })} %>
                     </div>
                 </div>
-
-                <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="inner">
-                        <p class="footer-p">
-                            This webpage created by
-                            <a href="https://github.com/chernobyl-pod">Chernobyl Pod, July 2016</a>
-                        </p>
-                    </div>
-                </footer>
             </div>
+<%- include("_about.ejs"); %>
 <%- include("_footer.ejs"); %>

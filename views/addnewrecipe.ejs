@@ -1,87 +1,55 @@
 <%- include("_head.ejs", {pgtitle: "Add New Recipe"}); %>
-            <header class="masthead-clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h3 class="hidden-xs col-lg-6">Current List:
-                    <span class="label label-default">household</span>
-                </h3>
-                <h4 class="col-xs-6 hidden-lg">
-                    household
-                </h4>
-                <form class="recipes col-xs-6 col-lg-6" action="/recipes" method="get">
-                    <input type="submit" name="recipes" value="Recipes" class="recipes btn btn-primary col-xs-12 col-lg-12">
-                </form>
-            </header>
-            <div class="site-wrapper-inner">
-                <header class="sub-header">
-                    <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <form class="logout" action="/logout" method="get">
-                            <input class="btn btn-success col-xs-3" type="submit" name="logout" value="Log Out">
-                        </form>
-                        <form class="change" action="/households" method="get">
-                            <input class="btn btn-success col-xs-3" type="submit" name="change" value="Change">
-                        </form>
-                        <form class="addhousehold" action="/addhousehold" method="get">
-                            <input class="btn btn-success col-xs-3" type="submit" name="joinhousehold" value="Join">
-                        </form>
-                        <form class="newhousehold" action="/newhousehold" method="get">
-                            <input class="btn btn-success col-xs-3" type="submit" name="newhousehold" value="Create">
-                        </form>
-                    </div>
-                </header>
-                <h1>Search for Recipes</h1>
-                <form class="recipe-query" action="/recipe-query" method="post">
-                    <fieldset>
-                        <input type="text" name="recipename" placeholder="Search Name">
-                        <input type="number" name="numrecipes" value="">
-                        <input type="text" name="allergies" placeholder="Allergies">
-                        <input type="dropdown" name="dietarypref" placeholder="Preferred Diet">
-                        <input type="text" name="genre" placeholder="Style">
-                        <input type="dropdown" name="coursetype" placeholder="Course">
-                        <input type="submit" name="submit" value="Submit">
-                    </fieldset>
-                </form>
+<%- include('_header.ejs', {household:"Household"}); %>
+<div class="site-wrapper-inner">
+    <%- include("_navbar.ejs"); %>
+    <h1>Search for Recipes</h1>
+    <form class="recipe-query" action="/recipe-query" method="post">
+        <fieldset>
+            <input type="text" name="recipename" placeholder="Search Name">
+            <input type="number" name="numrecipes" value="">
+            <input type="text" name="allergies" placeholder="Allergies">
+            <input type="dropdown" name="dietarypref" placeholder="Preferred Diet">
+            <input type="text" name="genre" placeholder="Style">
+            <input type="dropdown" name="coursetype" placeholder="Course">
+            <input type="submit" name="submit" value="Submit">
+        </fieldset>
+    </form>
 
-								<div class="row">
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-										<% if(typeof recipe != "undefined") { %>
-											<% recipe.results.forEach(function(item){ %>
-												<div class="row">
-													<img src="https://spoonacular.com/recipeImages/<%=item.image%>" alt="<%=item.title%>" height="100" width="100">
-													<a href="/recipe-query/<%=item.id%>" class="btn"><%=item.title%></a>
-												</div>
-											<%  })} %>
-                    </div>
-                </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <% if(typeof recipe != "undefined") { %>
+                <% recipe.results.forEach(function(item){ %>
                     <div class="row">
-                        <div class="col-xs-12">
-                            <h1>Custom Recipe</h1>
-                                <form class="custom-recipe" action="/addnewrecipe" method="post">
-                                    <input type="text" name="recipe_name" placeholder="Recipe Name">
-                                    <input type="text" name="recipe_allergies" placeholder="Allergies">
-                                    <input type="text" name="recipe_preferred_diet" placeholder="Preferred Diet">
-                                    <input type="text" name="recipe_style" placeholder="Style">
-                                    <input type="text" name="recipe_course" placeholder="Course">
-                                    <input type="submit" name="addnewrecipe" value="Create Custom Recipe">
-                                </form>
-                            </div>
+                        <img src="https://spoonacular.com/recipeImages/<%=item.image%>" alt="<%=item.title%>" height="100" width="100">
+                        <a href="/recipe-query/<%=item.id%>" class="btn"><%=item.title%></a>
+                    </div>
+                <%  })} %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Custom Recipe</h1>
+                <form class="custom-recipe" action="/addnewrecipe" method="post">
+                    <input type="text" name="recipe_name" placeholder="Recipe Name">
+                    <input type="text" name="recipe_allergies" placeholder="Allergies">
+                    <input type="text" name="recipe_preferred_diet" placeholder="Preferred Diet">
+                    <input type="text" name="recipe_style" placeholder="Style">
+                    <input type="text" name="recipe_course" placeholder="Course">
+                    <input type="submit" name="addnewrecipe" value="Create Custom Recipe">
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <% if(typeof ingredients != "undefined") { %>
+                    <% ingredients[0].steps[0].ingredients.forEach(function(item){ %>
+                        <div class="row">
+                            <img src="<%=item.image%>" alt="<%=item.name%>" height="100" width="100">
+                            <p><%=item.name%></p>
                         </div>
-												<div class="row">
-													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-														<% if(typeof ingredients != "undefined") { %>
-															<% ingredients[0].steps[0].ingredients.forEach(function(item){ %>
-																<div class="row">
-																	<img src="<%=item.image%>" alt="<%=item.name%>" height="100" width="100">
-																	<p><%=item.name%></p>
-																</div>
-															<%  })} %>
-														</div>
-												</div>
-                    <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="inner">
-                                <p class="footer-p">
-                                    This webpage created by
-                                    <a href="https://github.com/chernobyl-pod">Chernobyl Pod, July 2016</a>
-                                </p>
-                            </div>
-            		</footer>
-					</div>
-<%- include("_footer.ejs"); %>
+                    <%  })} %>
+                </div>
+            </div>
+        </div>
+        <%- include("_about.ejs"); %>
+        <%- include("_footer.ejs"); %>

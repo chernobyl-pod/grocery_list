@@ -1,26 +1,27 @@
 <%- include("_head.ejs", {pgtitle: "Register"}); %>
 <%- include("_headergeneric.ejs"); %>
-        <div class="site-wrapper-inner">
-            <form class="" action="/register" method="post">
-                <div class="form-group">
-                    <label for="email">E-Mail Address</label>
-                    <input class="col-xs-12" type="text" name="email" value="name@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="username">Name</label>
-                    <input class="col-xs-12" type="text" name="username" value="Bangarang Clipperbroke">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input class="col-xs-12" type="password" name="password" value="">
-                </div>
-                <div class="form-group">
-                    <label for="repeatpassword">Repeat Your Password</label>
-                    <input class="col-xs-12" type="password" name="repeater" value="">
-                </div>
-                <footer class="footer col-xs-12 col-lg-12">
-                    <input type="submit" value="Submit" class="btn btn-primary btn-block">
-                </footer>
-            </form>
+<div class="site-wrapper-inner">
+    <form class="" action="/register" method="post">
+        <div class="form-group">
+            <label for="email">E-Mail Address</label>
+            <input class="col-xs-12" type="text" name="email" value="name@example.com">
         </div>
+        <div class="form-group">
+            <label for="username">Name</label>
+            <input class="col-xs-12" type="text" name="username" value="Bangarang Clipperbroke">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input class="col-xs-12" type="password" name="password" value="">
+        </div>
+        <div class="form-group">
+            <label for="repeatpassword">Repeat Your Password</label>
+            <input class="col-xs-12" type="password" name="repeater" value="">
+        </div>
+        <footer class="footer col-xs-12 col-lg-12">
+            <input type="submit" value="Submit" class="btn btn-primary btn-block">
+        </footer>
+    </form>
+</div>
+<%- include("_about.ejs"); %>
 <%- include("_footer.ejs"); %>

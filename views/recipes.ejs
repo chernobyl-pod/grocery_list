@@ -1,50 +1,27 @@
 <%- include("_head.ejs", {pgtitle: "Recipes"}); %>
-<%- include("_header.ejs", {household: household}); %>
-            <div class="site-wrapper-inner">
-
-                <header class="sub-header">
-                    <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <form class="logout" action="/logout" method="get">
-                            <input class="btn btn-success col-xs-3" type="submit" name="logout" value="Log Out">
-                        </form>
-                        <form class="change" action="/households" method="get">
-                            <input class="btn btn-success col-xs-3" type="submit" name="change" value="Change">
-                        </form>
-                        <form class="addhousehold" action="/addhousehold" method="get">
-                            <input class="btn btn-success col-xs-3" type="submit" name="joinhousehold" value="Join">
-                        </form>
-                        <form class="newhousehold" action="/newhousehold" method="get">
-                            <input class="btn btn-success col-xs-3" type="submit" name="newhousehold" value="Create New">
-                        </form>
-                    </div>
-                </header>
-
-                <div class="recipe-row col-xs-8">
-                    <fieldset class="col-xs-12">
-                        <h3>Recipes</h3>
-                        <% recipes.forEach(function(recipe) { %>
-                            <h4><%=recipe.name%></h4>
-                            <form class="addingredients" action="/addnewitem/<%=recipe.name%>" method="post">
-                              <input type="submit" name="addingredients" value="Add All Ingredients">
-                            </form>
-                            <form class="editerecipe" action="/editrecipe/<%=recipe.name%>" method="get">
-                              <input type="submit" name="editrecipe" value="Edit Recipe">
-                            </form>
-                            <form class="deleterecipe" action="/recipes/delete/<%=recipe.name%>" method="post">
-                              <input type="submit" name="editrecipe" value="Delete Recipe">
-                            </form>
-                        <% }); %>
-                    </fieldset>
-                    <form class="addnewrecipe" action="/recipes/new" method="get">
-                        <input type="submit" name="newrecipe" value="Add New Recipe" class="btn btn-primary">
-                    </form>
-                </div>
-				<footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="inner">
-                        <p class="footer-p">
-                            This webpage created by <a href="https://github.com/chernobyl-pod">Chernobyl Pod, July 2016</a>
-                        </p>
-                    </div>
-                </footer>
-            </div>
+<%- include("_header.ejs", {household:"Household"}); %>
+<div class="site-wrapper-inner">
+    <%- include("_navbar.ejs"); %>
+    <div class="recipe-row col-xs-8">
+        <fieldset class="col-xs-12">
+            <h3>Recipes</h3>
+            <% recipes.forEach(function(recipe) { %>
+                <h4><%=recipe.name%></h4>
+                <form class="addingredients" action="/addnewitem/<%=recipe.name%>" method="post">
+                    <input type="submit" name="addingredients" value="Add All Ingredients">
+                </form>
+                <form class="editerecipe" action="/editrecipe/<%=recipe.name%>" method="get">
+                    <input type="submit" name="editrecipe" value="Edit Recipe">
+                </form>
+                <form class="deleterecipe" action="/recipes/delete/<%=recipe.name%>" method="post">
+                    <input type="submit" name="editrecipe" value="Delete Recipe">
+                </form>
+            <% }); %>
+        </fieldset>
+        <form class="addnewrecipe" action="/recipes/new" method="get">
+            <input type="submit" name="newrecipe" value="Add New Recipe" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+<%- include("_about.ejs"); %>
 <%- include("_footer.ejs"); %>
