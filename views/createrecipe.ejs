@@ -2,9 +2,6 @@
 <%- include("_header.ejs",{household:"Household"}); %>
             <div class="site-wrapper-inner">
                 <%- include("_navbar.ejs"); %>
-                    <form class="recipes col-xs-6 col-lg-6" action="/" method="get">
-                        <input type="submit" name="recipes" value="Back to List" class="recipes btn btn-primary col-xs-12 col-lg-12">
-                    </form>
                     <h1><%=recipe%></h1>
                     <% ingredients.forEach(function(ingredient) { %>
                       <h3><%=ingredient%></h3>
