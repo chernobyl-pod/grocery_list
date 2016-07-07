@@ -6,7 +6,7 @@ var router = express.Router();
 var bcrypt = require('bcrypt');
 
 router.get('/', function(req, res) {
-  res.render('login');
+  res.render('login', {match: true});
 });
 
 router.post('/', function(req, res) {
@@ -24,7 +24,7 @@ router.post('/', function(req, res) {
           res.render('myhouse', {groceries: [], household: req.session.household});
         }
         else {
-          console.log(result);
+          res.render('login', {match: false});
         }
       });
     }
