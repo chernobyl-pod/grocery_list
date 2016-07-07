@@ -8,6 +8,9 @@
     <h1><%=recipe%></h1>
     <% ingredients.forEach(function(ingredient) { %>
       <h3><%=ingredient%></h3>
+      <form class="deleteingredient" action="/addnewrecipe/deleteingredient/<%=ingredient%>" method="post">
+        <input type="submit" name="delete" value="Delete">
+      </form>
     <% }) %>
     <form class="addingredient" action="/addnewrecipe/addingredient/" method="post">
       <input type="text" name="ingredient" placeholder="Ingredient">
