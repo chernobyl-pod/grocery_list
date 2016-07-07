@@ -35,7 +35,7 @@ request(options, callback);
 });
 
 
-router.get('/:item_id', function(req, res, next){
+router.get('/:name/:item_id', function(req, res, next){
   var options = {
     url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + req.params.item_id + "/analyzedInstructions?stepBreakdown=true",
     headers: {
@@ -47,9 +47,62 @@ router.get('/:item_id', function(req, res, next){
   function callback(error, response, body) {
     if (!error && response.statusCode == 200) {
       var info = JSON.parse(body);
-      console.log(info);
+      var ingredients = [];
+      for (var i = 0; i < info[0].steps[0].ingredients.length; i++) {
+        ingredients.push(info[0].steps[0].ingredients[i].name);
+      }
+      var ingob = [];
+      for (var i = 0; i < ingredients.length; i++) {
+        ingob.push({name: ingredients[i], quantity: 1});
+      }
+      knex('households').where('name', req.session.household)
+      .then(function(house) {
+        knex('food').insert(ingob)
+        .then(function() {
+          knex('recipes').where('name', req.params.name)
+          .then(function(recipeexists) {
+            if (recipeexists[0]) {
+              knex('housholds-recipes').insert([{households_id: house[0].id, recipes_id: recipeexists[0].id}])
+              .then(function() {
+                knex('food').whereIn('name', ingredients)
+                .then(function(foods) {
+                  var ingredList = [];
+                  for (var i = 0; i < foods.length; i++) {
+                    ingredList.push({recipes_id: recipeexists[0].id, food_id: foods[i].id})
+                  }
+                  knex('recipes-food').insert(ingredList)
+                  .then(function() {
+                    res.redirect('/recipes');
+                  })
+                })
+              })
+            }
+            else {
+              knex('recipes').insert([{name: req.params.name}])
+              .then(function() {
+                knex('recipes').where('name', req.params.name)
+                .then(function(recipe) {
+                  knex('households-recipes').insert([{households_id: house[0].id, recipes_id: recipe[0].id}])
+                  .then(function() {
+                    knex('food').whereIn('name', ingredients)
+                    .then(function(foods) {
+                      var ingredList = [];
+                      for (var i = 0; i < foods.length; i++) {
+                        ingredList.push({recipes_id: recipe[0].id, food_id: foods[i].id})
+                      }
+                      knex('recipes-food').insert(ingredList)
+                      .then(function() {
+                        res.redirect('/recipes');
+                      })
+                    })
+                  })
 
-      res.render('addnewrecipe', {ingredients: info, household: req.session.household});
+                })
+              })
+            }
+          });
+        })
+      });
     } else {
       console.log(error);
       res.send("We done goofed");

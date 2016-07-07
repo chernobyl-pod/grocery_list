@@ -21,7 +21,7 @@
                 <% recipe.results.forEach(function(item){ %>
                     <div class="row">
                         <img src="https://spoonacular.com/recipeImages/<%=item.image%>" alt="<%=item.title%>" height="100" width="100">
-                        <a href="/recipe-query/<%=item.id%>" class="btn"><%=item.title%></a>
+                        <a href="/recipe-query/<%=item.title%>/<%=item.id%>" class="btn"><%=item.title%></a>
                     </div>
                 <%  })} %>
             </div>
