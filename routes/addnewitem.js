@@ -91,7 +91,7 @@ router.post('/search_api_item', function(req, res){
       'Accept': "application/json"
     }
   };
-  
+
   function callback(error, response, body) {
     if (!error && response.statusCode === 200) {
       var info = JSON.parse(body);
@@ -107,8 +107,6 @@ router.post('/search_api_item', function(req, res){
 // ajax('GET', "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?number=" + req.body.num_results + "&offset=0&query=" + req.body.search, function(err, data){
 //   console.log(data);
 // });
-
-
 
 
   router.post('/:recipe', function(req, res) {
