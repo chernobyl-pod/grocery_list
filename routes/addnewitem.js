@@ -29,12 +29,15 @@ router.post('/addnew', function(req, res) {
         });
       }
       else {
-        //var thisfood = firstLetter(req.body.item_name);
+
+        var this2food = firstLetter(req.body.item_name);
+        console.log(this2food);
         var quantity = (req.body.item_qty || 1);
         knex('food').insert({name: req.body.item_name, quantity: quantity})
         .then(function() {
-          knex.select('id').from('food').where('name', thisfood)
+          knex.select('id').from('food').where('name', this2food)
           .then(function(food) {
+            console.log(food);
             knex('households-food').insert({households_id: house[0].id, food_id: food[0].id})
             .then(function() {
               res.redirect('/');
