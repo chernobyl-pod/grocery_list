@@ -43,9 +43,11 @@ router.get('/', function(req, res) {
 });
 
 router.post('/addingredient', function(req, res) {
-  knex('food').where('name', req.body.ingredient)
+  var toAdd = firstLetter(req.body.ingredient);
+  knex('food').where('name', toAdd)
   .then(function(food) {
     if (food[0]) {
+      console.log(food);
       knex('recipes').where('name', req.session.recipe)
       .then(function(recipe) {
         knex('recipes-food').insert([{recipes_id: recipe[0].id, food_id: food[0].id}])
@@ -105,4 +107,15 @@ router.post('/submit', function(req, res) {
     });
   });
 });
+
+function firstLetter(str) {
+  str = str.split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].split('');
+    str[i][0] = str[i][0].toUpperCase();
+    str[i] = str[i].join('');
+  }
+  return str.join(' ');
+}
+
 module.exports = router;

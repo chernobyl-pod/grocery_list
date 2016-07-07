@@ -49,7 +49,7 @@ router.get('/:name/:item_id', function(req, res, next){
       var info = JSON.parse(body);
       var ingredients = [];
       for (var i = 0; i < info[0].steps[0].ingredients.length; i++) {
-        ingredients.push(info[0].steps[0].ingredients[i].name);
+        ingredients.push(firstLetter(info[0].steps[0].ingredients[i].name));
       }
       var ingob = [];
       for (var i = 0; i < ingredients.length; i++) {
@@ -112,6 +112,14 @@ router.get('/:name/:item_id', function(req, res, next){
 
 });
 
-
+function firstLetter(str) {
+  str = str.split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].split('');
+    str[i][0] = str[i][0].toUpperCase();
+    str[i] = str[i].join('');
+  }
+  return str.join(' ');
+}
 
 module.exports = router;
