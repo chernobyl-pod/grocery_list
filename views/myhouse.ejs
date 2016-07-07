@@ -41,37 +41,26 @@
                         </form>
                     </div>
                 </header>
-                <br>
-                <div class="recipe-row col-xs-8">
+                <form class="add col-xs-6 col-lg-6" action="/addnewitem" method="get">
+                    <input type="submit" name="add-item" value="Add" class="button-special btn btn-primary">
+                </form>
+                <form class="delete-all col-xs-6 col-lg-6" action="/delete" method="post">
+                    <input type="submit" value="Delete All" class="button-special btn btn-primary">
+                </form>
+                <div class="recipe-row col-xs-12">
                     <fieldset class="col-xs-12">
                         <ul class="col-xs-12">
                             <% groceries.forEach(function(gro){ %>
                                 <li>
                                     <h3><%= gro.name %></h3>
+                                    <form class="delete" action="/delete/<%=gro.name%>" method="post">
+                                        <input type="submit" name="delete" value="Delete" class="button-delete btn btn-warning">
+                                    </form>
                                 </li>
                             <% }); %>
                         </ul>
                     </fieldset>
                 </div>
-                <div class="recipe-button-row col-xs-4">
-                    <fieldset class="clear-buttons">
-                        <% groceries.forEach(function(gro){ %>
-                            <ul class="col-xs-12">
-                                <li>
-                                    <form class="delete" action="/delete/<%=gro.name%>" method="post">
-                                        <input type="submit" name="delete" value="Delete">
-                                    </form>
-                                </li>
-                            </ul>
-                        <% }); %>
-                    </fieldset>
-                </div>
-                <form class="add col-xs-6 col-lg-6" action="/addnewitem" method="get">
-                    <input type="submit" name="add-item" value="Add" class="btn btn-primary">
-                </form>
-                <form class="delete-all col-xs-6 col-lg-6" action="/delete" method="post">
-                    <input type="submit" value="Delete All" class="btn btn-primary">
-                </form>
                 <footer class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="inner">
                         <p class="footer-p">

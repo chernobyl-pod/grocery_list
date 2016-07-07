@@ -56,15 +56,15 @@ app.use('/recipe-query', recipequery);
 app.use('/delete', remove);
 app.use('/addnewrecipe', addnewrecipe);
 
-// var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3000;
 //
 // app.listen(port, function() {
 //   console.log("Listening on: " + port + ".");
 // });
 
 
-http.listen(3005, function(){
-  console.log("socket listen on 3005");
+http.listen(port, function(){
+  console.log("socket listen on " + port + "...");
 });
 
 io.on('connection', function (socket) {
