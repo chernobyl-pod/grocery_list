@@ -1,7 +1,6 @@
 <%- include("_head.ejs",{pgtitle:"Create Recipe"}); %>
 <%- include("_header.ejs",{household:household}); %>
             <div class="site-wrapper-inner">
-                <%- include("_navbar.ejs"); %>
                     <h1><%=recipe%></h1>
                     <% ingredients.forEach(function(ingredient) { %>
                       <h3><%=ingredient%></h3>

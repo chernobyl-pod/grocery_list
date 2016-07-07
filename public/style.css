@@ -24,24 +24,17 @@ body {
     overflow: hidden;
 }
 
+.header-buttons{
+    margin: 1% 0;
+}
+
 .button-special {
     margin: 3% 5%;
-    padding: 5% 5%;
+    padding: 2% 5%;
 }
 
 .button-delete {
     margin-top: 4%;
-}
-
-.masthead-clearfix {
-	position: fixed;
-	top: 0;
-    left: 0;
-	height: 70px;
-	line-height: 60px;
-	background-color: #212121;
-	color: #E0F2F1;
-	z-index: 10;
 }
 
 .footer {
@@ -52,22 +45,11 @@ body {
   z-index: 10;
 }
 
-.contact {
-    right: 0;
-}
-
-#extraSmallHeadline{
-	font-size: 12px;
-}
 
 .footer-p {
 	font-size: 16px;
 }
 
-.inner-cover{
-	text-align: center;
-	padding: 5% 1%;
-}
 
 figcaption{
 	font-size: 8px;
