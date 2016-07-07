@@ -14,6 +14,7 @@ router.post('/', function(req, res) {
 });
 
 router.get('/', function(req, res) {
+  console.log(req.session);
   knex('recipes').where('name', req.session.recipe)
   .then(function(recipe) {
     knex('recipes-food').where('recipes_id', recipe[0].id)
@@ -55,7 +56,7 @@ router.post('/addingredient', function(req, res) {
           .then(function(food) {
             knex('recipes-food').insert([{recipes_id: recipe[0].id, food_id: food[0].id}])
             .then(function() {
-              res.redirect('/addnewrecipe/');
+              res.redirect('/addnewrecipe');
             });
           });
         });

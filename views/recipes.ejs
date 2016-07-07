@@ -44,6 +44,15 @@
                         <h3>Recipes</h3>
                         <% recipes.forEach(function(recipe) { %>
                             <h4><%=recipe.name%></h4>
+                            <form class="addingredients" action="/addnewitem/<%=recipe.name%>" method="post">
+                              <input type="submit" name="addingredients" value="Add All Ingredients">
+                            </form>
+                            <form class="editerecipe" action="/editrecipe/<%=recipe.name%>" method="get">
+                              <input type="submit" name="editrecipe" value="Edit Recipe">
+                            </form>
+                            <form class="deleterecipe" action="/recipes/delete/<%=recipe.name%>" method="post">
+                              <input type="submit" name="editrecipe" value="Delete Recipe">
+                            </form>
                         <% }); %>
                     </fieldset>
                     <form class="addnewrecipe" action="/recipes/new" method="get">
