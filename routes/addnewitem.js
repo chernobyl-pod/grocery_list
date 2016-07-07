@@ -125,7 +125,12 @@ request(options, callback);
 
 
 
-
+router.post('/addnew', function(req, res, next){
+  res.json({
+    status: "successful",
+    data: req.body
+  });
+});
 
 
 module.exports = router;

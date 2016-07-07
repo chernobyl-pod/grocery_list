@@ -39,7 +39,7 @@ app.use(cookieSession({
 app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 app.use('/', home);
@@ -62,17 +62,18 @@ app.use('/addnewrecipe', addnewrecipe);
 //   console.log("Listening on: " + port + ".");
 // });
 
-
-http.listen(3005, function(){
-  console.log("socket listen on 3005");
-});
-
 io.on('connection', function (socket) {
   // console.log("socket connected" + socket.id);
   // socket.emit('news', { hello: 'world' });
   //console.log(socket);
-  socket.on('here', function (data) {
-    //console.log(data);
+  console.log('socked');
+  socket.on('new item', function (item) {
+    console.log(item);
+    io.emit('new item', item);
   });
 
+});
+
+http.listen(3005, function(){
+  console.log("socket listen on 3005");
 });

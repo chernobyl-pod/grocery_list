@@ -56,7 +56,7 @@
                 <div class="recipe-button-row col-xs-4">
                     <fieldset class="clear-buttons">
                         <% groceries.forEach(function(gro){ %>
-                            <ul class="col-xs-12">
+                            <ul class="col-xs-12" id="socketMessages">
                                 <li>
                                     <form class="delete" action="/delete/<%=gro.name%>" method="post">
                                         <input type="submit" name="delete" value="Delete">
@@ -82,6 +82,7 @@
             </div>
 
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.js"></script>
         <script src="/socket.js"></script>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
