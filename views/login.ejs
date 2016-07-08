@@ -12,6 +12,12 @@
             <input class="button-special btn btn-primary btn-block" type="submit" value="Submit">
         </div>
     </form>
+    <div class="bad-login">
+      <% if (!match) { %>
+        <h3>Invalid Email or Password. Please try again.</h3>
+      <% } %>
+    </div>
+
 </div>
 
 <%- include("_about.ejs"); %>
