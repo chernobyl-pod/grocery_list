@@ -11,8 +11,11 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-  knex('households').insert({name: req.body.name});
-  req.session.household = req.body.name;
-  res.redirect('/');
+  console.log(req.body.name);
+  knex('households').insert({name: req.body.name})
+  .then(function() {
+    req.session.household = req.body.name;
+    res.redirect('/');
+  });
 });
 module.exports = router;
