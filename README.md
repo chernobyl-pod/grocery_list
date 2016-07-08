@@ -22,3 +22,9 @@ For technologies we used EJS, Express, Knex, PostresDB, Socket.io, Bootstrap, Ch
 ![alt text](/screenshots/recipe_list.png "Recipe list view")
 
 ![alt text](/screenshots/recipe_search.png "Recipe search view")
+
+#Awesome video we made
+
+[![ScreenShot](https://vimeo.com/173942973)](https://vimeo.com/173942973)
+
+https://vimeo.com/173942973
