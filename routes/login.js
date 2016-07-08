@@ -21,7 +21,7 @@ router.post('/', function(req, res) {
             email: data[0].email,
             household: data[0].name
           };
-          res.render('myhouse', {groceries: [], household: req.session.household});
+          res.redirect('/');
         }
         else {
           res.render('login', {match: false});

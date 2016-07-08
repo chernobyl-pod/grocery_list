@@ -44,7 +44,7 @@ module.exports = router;
 function validEmail(str) {
   str = str.split('');
   if (str.indexOf('@') !== -1) {
-    if (str.indexOf('.') > str.indexOf('@')) {
+    if (str.lastIndexOf('.') > str.indexOf('@')) {
       return true;
     }
   }
