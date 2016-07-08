@@ -12,9 +12,13 @@ body {
     clear: both;
 }
 
+.generic {
+    top: 0;
+}
+
 .container-fluid{
     min-height: 900px;
-    margin-top: 80px;
+    margin-top: 120px;
 	margin-bottom: 60px;
     overflow: hidden;
 }
@@ -26,6 +30,10 @@ body {
 
 .button-delete {
     margin-top: 4%;
+}
+
+button{
+    margin-top: 10px;
 }
 
 .footer {
