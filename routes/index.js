@@ -17,9 +17,6 @@ router.get('/', function(req, res) {
         }
         knex('food').whereIn('id', idlist)
         .then(function(foods) {
-          // for (var i = 0; i < foods.length; i++) {
-          //   foods[i].name = firstLetter(foods[i].name);
-          // }
           res.render('myhouse', {groceries: foods, household: req.session.household});
         })
       })
