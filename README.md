@@ -2,7 +2,7 @@
 A household grocery list
 
 #Concept
-Bon Shoppetit was conceptualized as a webpage which multiple members of a household (i.e., a family unit or roommates) could add/remove items to a common shopping list. We wanted to be able to pull from a common list (via an API), add custom items to the list (i.e., uncommon or non-food items), and be able to pull all ingredients from a recipe. Recipes can be selected from a common list via API, or created manually by the users. Use of sockets and user validation allows real-time changes to the list by authorized members of a household group.
+Shop Appetit was conceptualized as a webpage which multiple members of a household (i.e., a family unit or roommates) could add/remove items to a common shopping list. We wanted to be able to pull from a common list (via an API), add custom items to the list (i.e., uncommon or non-food items), and be able to pull all ingredients from a recipe. Recipes can be selected from a common list via API, or created manually by the users. Use of sockets and user validation allows real-time changes to the list by authorized members of a household group.
 
 # Technology
 For technologies we used EJS, Express, Knex, PostresDB, Socket.io, Bootstrap, Checkit, and Compass. In the future the app will be refactored to use SASS and/or Handlebars.
