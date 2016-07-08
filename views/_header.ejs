@@ -1,12 +1,21 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-header">
-		<a class="navbar-brand">Current list: <%=household%></a>
-	</div>
-	<div class="btn-group" role="group" aria-label="...">
-  		<a href="/"><button type="button" class="btn btn-primary">View List</button></a>
-  		<a href="/recipes"><button type="button" class="btn btn-primary">View Recipes</button></a>
-  	</div>
-	<div class="dropdown">
-		<%- include("_dropdown.ejs"); %>
-	</div>
+    <div class="container">
+
+        <div class="navbar-header col-xs-3">
+            <a class="navbar-brand">
+                <%=household%></a>
+        </div>
+        <div class="btn-group col-xs-6" role="group" aria-label="...">
+            <a href="/">
+                <button type="button" class="btn btn-primary col-xs-6">View List</button>
+            </a>
+            <a href="/recipes">
+                <button type="button" class="btn btn-primary col-xs-6">View Recipes</button>
+            </a>
+        </div>
+        <div class="dropdown col-xs-3">
+            <%- include("_dropdown.ejs"); %>
+        </div>
+    </div>
+
 </nav>
