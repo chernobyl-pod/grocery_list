@@ -12,6 +12,10 @@ body {
     clear: both;
 }
 
+.generic {
+    top: 0;
+}
+
 .container-fluid{
     min-height: 900px;
     margin-top: 120px;
