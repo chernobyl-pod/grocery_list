@@ -25,6 +25,6 @@ For technologies we used EJS, Express, Knex, PostresDB, Socket.io, Bootstrap, Ch
 
 #Awesome video we made
 
-[![ScreenShot](https://vimeo.com/173942973)](https://vimeo.com/173942973)
+[![Video](/screenshots/landing.png)](https://vimeo.com/173942973)
 
-https://vimeo.com/173942973
+
