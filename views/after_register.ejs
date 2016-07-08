@@ -1,0 +1,16 @@
+<%- include("_head.ejs", {pgtitle: "Select Household"}); %>
+<%- include("_headergeneric.ejs"); %>
+            <div class="site-wrapper-inner col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="inner-cover col-xs-12 col-sm-4 col-md-4 col-lg-12">
+                    <div class="landing col-xs-12 col-lg-12">
+                        <form class="landing-form" action="/addhousehold" method="get">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block col-xs-6" name="name" value="Join a Household">
+                        </form>
+                        <form class="landing-form" action="/newhousehold" method="get">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block col-xs-6" name="name" value="Create a Household">
+                        </form>
+                    </div>
+                </div>
+            </div>
+<%- include("_about.ejs"); %>
+<%- include("_footer.ejs") %>

@@ -13,20 +13,6 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res, next) {
 
-  req.session = {
-    email: req.body.email,
-    name: req.body.username
-  };
-  bcrypt.genSalt(10, function(err, salt) {
-    bcrypt.hash(req.body.password, salt, function(err, hash) {
-      knex('members').insert({name: req.body.username, email: req.body.email, password: hash})
-      .then(function(data){
-        res.redirect('addhousehold');
-      }).catch(next);
-    })
-  })
-
-
   if (validEmail(req.body.email)) {
     if (validPassword(req.body.password, req.body.repeater)) {
       if (req.body.password !== "") {
@@ -38,7 +24,7 @@ router.post('/', function(req, res, next) {
           bcrypt.hash(req.body.password, salt, function(err, hash) {
             knex('members').insert({name: req.body.username, email: req.body.email, password: hash})
             .then(function(data){
-              res.redirect('addhousehold');
+              res.render('after_register');
             }).catch(next);
           });
         });

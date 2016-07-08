@@ -5,7 +5,8 @@ var knex = require('../db/knex');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  if (req.session.email) {
+  console.log(req.session);
+  if (req.session.household) {
     knex('households').where('name', req.session.household)
     .then(function(house) {
       knex('households-food').where('households_id', house[0].id)
